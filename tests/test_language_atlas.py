@@ -99,6 +99,12 @@ class LanguageAtlasTests(unittest.TestCase):
         ET.fromstring(atlas.render_svg(data))
         self.assertIn("No public", atlas.render_table(data))
 
+    def test_edge_gradient_renders_zero_width_and_height_paths(self):
+        # objectBoundingBox gradients disappear for perfectly vertical/horizontal lines.
+        svg = ET.fromstring(atlas.render_svg(atlas.build_model("jang-sw", fixture())))
+        gradient = svg.find(".//{http://www.w3.org/2000/svg}linearGradient[@id='line']")
+        self.assertEqual(gradient.get("gradientUnits"), "userSpaceOnUse")
+
     def test_writes_and_check_mode_are_deterministic(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

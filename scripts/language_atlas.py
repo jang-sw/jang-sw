@@ -203,7 +203,7 @@ def render_svg(model: dict) -> str:
         '<svg xmlns="http://www.w3.org/2000/svg" width="760" height="480" viewBox="0 0 760 480" role="img" aria-labelledby="title desc">',
         '<title id="title">Language Atlas</title>',
         '<desc id="desc">Equal-size language nodes show repository counts. Lines connect languages found together in repositories; thicker lines mean more shared repositories. Not a proficiency score.</desc>',
-        '<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0e1933"/><stop offset="1" stop-color="#15102b"/></linearGradient><linearGradient id="line"><stop stop-color="#6fe8ff"/><stop offset="1" stop-color="#b59bff"/></linearGradient></defs>',
+        '<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0e1933"/><stop offset="1" stop-color="#15102b"/></linearGradient><linearGradient id="line" gradientUnits="userSpaceOnUse" x1="0" y1="100" x2="760" y2="480"><stop stop-color="#6fe8ff"/><stop offset="1" stop-color="#b59bff"/></linearGradient></defs>',
         '<rect x="1" y="1" width="758" height="478" rx="22" fill="url(#bg)" stroke="#334362"/>',
         '<g font-family="system-ui, sans-serif">',
         '<text x="32" y="44" fill="#f1f6ff" font-size="29" font-weight="750" letter-spacing="3">LANGUAGE ATLAS</text>',
@@ -224,7 +224,7 @@ def render_svg(model: dict) -> str:
         out.extend([
             f'<circle cx="{x:.1f}" cy="{y:.1f}" r="42" fill="#111b33" stroke="{color}" stroke-width="3"/>',
             f'<text x="{x:.1f}" y="{y + 11:.1f}" fill="{color}" font-size="30" font-weight="750" text-anchor="middle">{lang["repository_count"]}</text>',
-            f'<text x="{x:.1f}" y="{y + 66:.1f}" fill="#e9f0ff" font-size="24" font-weight="600" text-anchor="middle">{xml(short(lang["name"], 18))}</text>',
+            f'<text x="{x:.1f}" y="{y + 66:.1f}" fill="#e9f0ff" stroke="#11162e" stroke-width="7" stroke-linejoin="round" paint-order="stroke" font-size="24" font-weight="600" text-anchor="middle">{xml(short(lang["name"], 18))}</text>',
         ])
     out.append('</g></svg>')
     return "\n".join(out) + "\n"
