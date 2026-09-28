@@ -9,6 +9,7 @@ validation complete before any generated file is replaced.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import itertools
 import json
@@ -271,9 +272,11 @@ def replace_block(original: str, body: str) -> str:
 
 
 def generate_outputs(root: Path, model: dict) -> dict[Path, str]:
+    svg = render_svg(model)
+    image_version = hashlib.sha256(svg.encode("utf-8")).hexdigest()[:12]
     outputs = {
         root / "data/languages.json": json.dumps(model, ensure_ascii=False, indent=2) + "\n",
-        root / "assets/language-atlas.svg": render_svg(model),
+        root / "assets/language-atlas.svg": svg,
     }
     for name, japanese in (("README.md", False), ("README.ja.md", True)):
         path = root / name
@@ -281,6 +284,9 @@ def generate_outputs(root: Path, model: dict) -> dict[Path, str]:
             original = path.read_text(encoding="utf-8")
         except OSError:
             raise AtlasError(f"Could not read {name}; no files were changed.") from None
+        # Give GitHub's image cache a new URL only when the diagram actually changes.
+        original = re.sub(r"\./assets/language-atlas\.svg(?:\?v=[0-9a-f]+)?",
+                          f"./assets/language-atlas.svg?v={image_version}", original)
         outputs[path] = replace_block(original, render_table(model, japanese))
     return outputs
 

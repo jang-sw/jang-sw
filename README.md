@@ -16,7 +16,7 @@
 The languages in my repositories, and how they meet. Lines connect languages found in the same project; thicker lines mean more shared repositories.
 
 <p align="center">
-  <img src="./assets/language-atlas.svg" width="100%" alt="Language Atlas: languages detected in my public repositories, connected by their shared projects." />
+  <img src="./assets/language-atlas.svg?v=777ee207657c" width="100%" alt="Language Atlas: languages detected in my public repositories, connected by their shared projects." />
 </p>
 
 <!-- LANGUAGE_ATLAS:START -->

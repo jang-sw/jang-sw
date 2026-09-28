@@ -16,7 +16,7 @@
 公開リポジトリで使われている言語のつながり。同じプロジェクトに含まれる言語を線で結び、共通するリポジトリが多いほど線を太くしています。
 
 <p align="center">
-  <img src="./assets/language-atlas.svg" width="100%" alt="Language Atlas：公開リポジトリに含まれる言語と、同じプロジェクトでの組み合わせ。" />
+  <img src="./assets/language-atlas.svg?v=777ee207657c" width="100%" alt="Language Atlas：公開リポジトリに含まれる言語と、同じプロジェクトでの組み合わせ。" />
 </p>
 
 <!-- LANGUAGE_ATLAS:START -->

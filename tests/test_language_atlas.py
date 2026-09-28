@@ -127,6 +127,17 @@ class LanguageAtlasTests(unittest.TestCase):
             self.assertEqual(path.read_text(encoding="utf-8"), "keep this")
             self.assertFalse((root / "data").exists())
 
+    def test_image_cache_version_depends_only_on_diagram(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in ("README.md", "README.ja.md"):
+                (root / name).write_text(f'<img src="./assets/language-atlas.svg"/>\n{atlas.START}\n{atlas.END}\n', encoding="utf-8")
+            model = atlas.build_model("jang-sw", fixture())
+            outputs = atlas.generate_outputs(root, model)
+            self.assertRegex(outputs[root / "README.md"], r'language-atlas\.svg\?v=[a-f0-9]{12}')
+            atlas.write_outputs(outputs)
+            self.assertEqual(outputs, atlas.generate_outputs(root, model))
+
     def test_redirect_guard_keeps_tokens_on_github_api_origin(self):
         handler = atlas.SameHostRedirect()
         request = Request("https://api.github.com/start", headers={"Authorization": "Bearer test-secret"})
