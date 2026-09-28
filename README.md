@@ -7,6 +7,10 @@
 </p>
 
 <p align="center">
+  <img src="./assets/typing-intro.svg" width="100%" alt="Curious. Always exploring." />
+</p>
+
+<p align="center">
   I build web applications and software, and enjoy exploring different technologies.<br/>
   I like understanding how things work and turning ideas into something useful.
 </p>
@@ -17,5 +21,9 @@
 </p>
 
 <p align="center">
-  <img src="./assets/profile-ribbon.svg" width="100%" alt="Korean · Japanese · JLPT N1. Learn, build, explore." />
+  <img src="./assets/space-loop.svg" width="100%" alt="Space Loop — a decorative arcade animation, independent of commit activity." />
+</p>
+
+<p align="center">
+  <sub>Korean &nbsp;·&nbsp; Japanese &nbsp;·&nbsp; JLPT N1</sub>
 </p>
