@@ -1,0 +1,725 @@
+{
+  "schema_version": 1,
+  "owner": "jang-sw",
+  "scope": "Owned public non-fork repositories, excluding the profile repository and empty language maps. Archived repositories are included and labeled.",
+  "source": "GitHub REST API /repos/{owner}/{repo}/languages (GitHub Linguist byte counts)",
+  "interpretation": "Repository presence and language co-occurrence, not proficiency. Normalized shares are the average per-repository byte shares, not total-byte shares.",
+  "scoped_repository_count": 29,
+  "repository_count": 29,
+  "archived_repository_count": 0,
+  "language_count": 15,
+  "repositories": [
+    {
+      "name": "AI-code-reviewer_dev-by-codex",
+      "url": "https://github.com/jang-sw/AI-code-reviewer_dev-by-codex",
+      "archived": false,
+      "languages": {
+        "CSS": 12824,
+        "Java": 969235,
+        "PowerShell": 24517,
+        "Python": 65302,
+        "Shell": 3093
+      }
+    },
+    {
+      "name": "Anguar-basic-first",
+      "url": "https://github.com/jang-sw/Anguar-basic-first",
+      "archived": false,
+      "languages": {
+        "CSS": 283,
+        "HTML": 745,
+        "TypeScript": 6270
+      }
+    },
+    {
+      "name": "Anguar-basic-second",
+      "url": "https://github.com/jang-sw/Anguar-basic-second",
+      "archived": false,
+      "languages": {
+        "HTML": 1402,
+        "SCSS": 1051,
+        "TypeScript": 12746
+      }
+    },
+    {
+      "name": "BullsAndCows",
+      "url": "https://github.com/jang-sw/BullsAndCows",
+      "archived": false,
+      "languages": {
+        "C++": 6626
+      }
+    },
+    {
+      "name": "Commuting-system-backend",
+      "url": "https://github.com/jang-sw/Commuting-system-backend",
+      "archived": false,
+      "languages": {
+        "Java": 73044
+      }
+    },
+    {
+      "name": "Commuting-system-front",
+      "url": "https://github.com/jang-sw/Commuting-system-front",
+      "archived": false,
+      "languages": {
+        "CSS": 8398,
+        "HTML": 611,
+        "JavaScript": 191,
+        "TypeScript": 3838,
+        "Vue": 82942
+      }
+    },
+    {
+      "name": "ES_Demo",
+      "url": "https://github.com/jang-sw/ES_Demo",
+      "archived": false,
+      "languages": {
+        "Java": 5741
+      }
+    },
+    {
+      "name": "express_sequelize_demo",
+      "url": "https://github.com/jang-sw/express_sequelize_demo",
+      "archived": false,
+      "languages": {
+        "JavaScript": 6555
+      }
+    },
+    {
+      "name": "express_sequelize_graphql_demo",
+      "url": "https://github.com/jang-sw/express_sequelize_graphql_demo",
+      "archived": false,
+      "languages": {
+        "JavaScript": 5292
+      }
+    },
+    {
+      "name": "FastApi_demo",
+      "url": "https://github.com/jang-sw/FastApi_demo",
+      "archived": false,
+      "languages": {
+        "HTML": 2771,
+        "Python": 8718
+      }
+    },
+    {
+      "name": "grpc_rest_web_demo",
+      "url": "https://github.com/jang-sw/grpc_rest_web_demo",
+      "archived": false,
+      "languages": {
+        "JavaScript": 6784
+      }
+    },
+    {
+      "name": "jpa_demo",
+      "url": "https://github.com/jang-sw/jpa_demo",
+      "archived": false,
+      "languages": {
+        "Java": 7938
+      }
+    },
+    {
+      "name": "laravel_vue_demo",
+      "url": "https://github.com/jang-sw/laravel_vue_demo",
+      "archived": false,
+      "languages": {
+        "Blade": 290,
+        "CSS": 2296,
+        "JavaScript": 1793,
+        "PHP": 61083,
+        "Vue": 7777
+      }
+    },
+    {
+      "name": "msa-demo",
+      "url": "https://github.com/jang-sw/msa-demo",
+      "archived": false,
+      "languages": {
+        "Java": 344
+      }
+    },
+    {
+      "name": "mybatis-setting-demo",
+      "url": "https://github.com/jang-sw/mybatis-setting-demo",
+      "archived": false,
+      "languages": {
+        "Java": 3508
+      }
+    },
+    {
+      "name": "querydsl-demo",
+      "url": "https://github.com/jang-sw/querydsl-demo",
+      "archived": false,
+      "languages": {
+        "Java": 7814
+      }
+    },
+    {
+      "name": "redis_websocket_demo-game-",
+      "url": "https://github.com/jang-sw/redis_websocket_demo-game-",
+      "archived": false,
+      "languages": {
+        "Java": 24456
+      }
+    },
+    {
+      "name": "socketIO_chat_demo",
+      "url": "https://github.com/jang-sw/socketIO_chat_demo",
+      "archived": false,
+      "languages": {
+        "JavaScript": 4235,
+        "Pug": 1037
+      }
+    },
+    {
+      "name": "spring-mongo-demo-SSE_Chat_jsp",
+      "url": "https://github.com/jang-sw/spring-mongo-demo-SSE_Chat_jsp",
+      "archived": false,
+      "languages": {
+        "Java": 22722
+      }
+    },
+    {
+      "name": "Spring-reactor-netty-websocket-demo",
+      "url": "https://github.com/jang-sw/Spring-reactor-netty-websocket-demo",
+      "archived": false,
+      "languages": {
+        "Java": 11451
+      }
+    },
+    {
+      "name": "spring-sec-basic",
+      "url": "https://github.com/jang-sw/spring-sec-basic",
+      "archived": false,
+      "languages": {
+        "Java": 8819
+      }
+    },
+    {
+      "name": "spring_batch_demo",
+      "url": "https://github.com/jang-sw/spring_batch_demo",
+      "archived": false,
+      "languages": {
+        "Java": 12530
+      }
+    },
+    {
+      "name": "tokenReciever",
+      "url": "https://github.com/jang-sw/tokenReciever",
+      "archived": false,
+      "languages": {
+        "Solidity": 3192
+      }
+    },
+    {
+      "name": "Vue-basic-first",
+      "url": "https://github.com/jang-sw/Vue-basic-first",
+      "archived": false,
+      "languages": {
+        "HTML": 611,
+        "JavaScript": 2368,
+        "Vue": 4357
+      }
+    },
+    {
+      "name": "web-library-ui-react",
+      "url": "https://github.com/jang-sw/web-library-ui-react",
+      "archived": false,
+      "languages": {
+        "CSS": 990,
+        "HTML": 1719,
+        "JavaScript": 12254
+      }
+    },
+    {
+      "name": "Web3-multilingual-community-backend",
+      "url": "https://github.com/jang-sw/Web3-multilingual-community-backend",
+      "archived": false,
+      "languages": {
+        "Java": 57436
+      }
+    },
+    {
+      "name": "Web3-multilingual-community-frontend",
+      "url": "https://github.com/jang-sw/Web3-multilingual-community-frontend",
+      "archived": false,
+      "languages": {
+        "CSS": 24522,
+        "HTML": 17109,
+        "JavaScript": 2691,
+        "TypeScript": 82591
+      }
+    },
+    {
+      "name": "Web3j-Websocket-transferEvent",
+      "url": "https://github.com/jang-sw/Web3j-Websocket-transferEvent",
+      "archived": false,
+      "languages": {
+        "Java": 4029
+      }
+    },
+    {
+      "name": "web3js-websocket-transfer",
+      "url": "https://github.com/jang-sw/web3js-websocket-transfer",
+      "archived": false,
+      "languages": {
+        "JavaScript": 1200
+      }
+    }
+  ],
+  "languages": [
+    {
+      "name": "Java",
+      "repository_count": 14,
+      "repository_names": [
+        "AI-code-reviewer_dev-by-codex",
+        "Commuting-system-backend",
+        "ES_Demo",
+        "jpa_demo",
+        "msa-demo",
+        "mybatis-setting-demo",
+        "querydsl-demo",
+        "redis_websocket_demo-game-",
+        "spring-mongo-demo-SSE_Chat_jsp",
+        "Spring-reactor-netty-websocket-demo",
+        "spring-sec-basic",
+        "spring_batch_demo",
+        "Web3-multilingual-community-backend",
+        "Web3j-Websocket-transferEvent"
+      ],
+      "normalized_share_percent": 47.936684,
+      "example": {
+        "name": "Commuting-system-backend",
+        "url": "https://github.com/jang-sw/Commuting-system-backend",
+        "archived": false
+      }
+    },
+    {
+      "name": "JavaScript",
+      "repository_count": 10,
+      "repository_names": [
+        "Commuting-system-front",
+        "express_sequelize_demo",
+        "express_sequelize_graphql_demo",
+        "grpc_rest_web_demo",
+        "laravel_vue_demo",
+        "socketIO_chat_demo",
+        "Vue-basic-first",
+        "web-library-ui-react",
+        "Web3-multilingual-community-frontend",
+        "web3js-websocket-transfer"
+      ],
+      "normalized_share_percent": 20.664554,
+      "example": {
+        "name": "grpc_rest_web_demo",
+        "url": "https://github.com/jang-sw/grpc_rest_web_demo",
+        "archived": false
+      }
+    },
+    {
+      "name": "HTML",
+      "repository_count": 7,
+      "repository_names": [
+        "Anguar-basic-first",
+        "Anguar-basic-second",
+        "Commuting-system-front",
+        "FastApi_demo",
+        "Vue-basic-first",
+        "web-library-ui-react",
+        "Web3-multilingual-community-frontend"
+      ],
+      "normalized_share_percent": 2.671927,
+      "example": {
+        "name": "FastApi_demo",
+        "url": "https://github.com/jang-sw/FastApi_demo",
+        "archived": false
+      }
+    },
+    {
+      "name": "CSS",
+      "repository_count": 6,
+      "repository_names": [
+        "AI-code-reviewer_dev-by-codex",
+        "Anguar-basic-first",
+        "Commuting-system-front",
+        "laravel_vue_demo",
+        "web-library-ui-react",
+        "Web3-multilingual-community-frontend"
+      ],
+      "normalized_share_percent": 1.479091,
+      "example": {
+        "name": "Web3-multilingual-community-frontend",
+        "url": "https://github.com/jang-sw/Web3-multilingual-community-frontend",
+        "archived": false
+      }
+    },
+    {
+      "name": "TypeScript",
+      "repository_count": 4,
+      "repository_names": [
+        "Anguar-basic-first",
+        "Anguar-basic-second",
+        "Commuting-system-front",
+        "Web3-multilingual-community-frontend"
+      ],
+      "normalized_share_percent": 8.236219,
+      "example": {
+        "name": "Anguar-basic-first",
+        "url": "https://github.com/jang-sw/Anguar-basic-first",
+        "archived": false
+      }
+    },
+    {
+      "name": "Vue",
+      "repository_count": 3,
+      "repository_names": [
+        "Commuting-system-front",
+        "laravel_vue_demo",
+        "Vue-basic-first"
+      ],
+      "normalized_share_percent": 5.394021,
+      "example": {
+        "name": "Commuting-system-front",
+        "url": "https://github.com/jang-sw/Commuting-system-front",
+        "archived": false
+      }
+    },
+    {
+      "name": "Python",
+      "repository_count": 2,
+      "repository_names": [
+        "AI-code-reviewer_dev-by-codex",
+        "FastApi_demo"
+      ],
+      "normalized_share_percent": 2.826071,
+      "example": {
+        "name": "FastApi_demo",
+        "url": "https://github.com/jang-sw/FastApi_demo",
+        "archived": false
+      }
+    },
+    {
+      "name": "C++",
+      "repository_count": 1,
+      "repository_names": [
+        "BullsAndCows"
+      ],
+      "normalized_share_percent": 3.448276,
+      "example": {
+        "name": "BullsAndCows",
+        "url": "https://github.com/jang-sw/BullsAndCows",
+        "archived": false
+      }
+    },
+    {
+      "name": "Solidity",
+      "repository_count": 1,
+      "repository_names": [
+        "tokenReciever"
+      ],
+      "normalized_share_percent": 3.448276,
+      "example": {
+        "name": "tokenReciever",
+        "url": "https://github.com/jang-sw/tokenReciever",
+        "archived": false
+      }
+    },
+    {
+      "name": "PHP",
+      "repository_count": 1,
+      "repository_names": [
+        "laravel_vue_demo"
+      ],
+      "normalized_share_percent": 2.875941,
+      "example": {
+        "name": "laravel_vue_demo",
+        "url": "https://github.com/jang-sw/laravel_vue_demo",
+        "archived": false
+      }
+    },
+    {
+      "name": "Pug",
+      "repository_count": 1,
+      "repository_names": [
+        "socketIO_chat_demo"
+      ],
+      "normalized_share_percent": 0.678274,
+      "example": {
+        "name": "socketIO_chat_demo",
+        "url": "https://github.com/jang-sw/socketIO_chat_demo",
+        "archived": false
+      }
+    },
+    {
+      "name": "SCSS",
+      "repository_count": 1,
+      "repository_names": [
+        "Anguar-basic-second"
+      ],
+      "normalized_share_percent": 0.238446,
+      "example": {
+        "name": "Anguar-basic-second",
+        "url": "https://github.com/jang-sw/Anguar-basic-second",
+        "archived": false
+      }
+    },
+    {
+      "name": "PowerShell",
+      "repository_count": 1,
+      "repository_names": [
+        "AI-code-reviewer_dev-by-codex"
+      ],
+      "normalized_share_percent": 0.078645,
+      "example": {
+        "name": "AI-code-reviewer_dev-by-codex",
+        "url": "https://github.com/jang-sw/AI-code-reviewer_dev-by-codex",
+        "archived": false
+      }
+    },
+    {
+      "name": "Blade",
+      "repository_count": 1,
+      "repository_names": [
+        "laravel_vue_demo"
+      ],
+      "normalized_share_percent": 0.013654,
+      "example": {
+        "name": "laravel_vue_demo",
+        "url": "https://github.com/jang-sw/laravel_vue_demo",
+        "archived": false
+      }
+    },
+    {
+      "name": "Shell",
+      "repository_count": 1,
+      "repository_names": [
+        "AI-code-reviewer_dev-by-codex"
+      ],
+      "normalized_share_percent": 0.009922,
+      "example": {
+        "name": "AI-code-reviewer_dev-by-codex",
+        "url": "https://github.com/jang-sw/AI-code-reviewer_dev-by-codex",
+        "archived": false
+      }
+    }
+  ],
+  "connections": [
+    {
+      "languages": [
+        "CSS",
+        "HTML"
+      ],
+      "repository_count": 4
+    },
+    {
+      "languages": [
+        "CSS",
+        "JavaScript"
+      ],
+      "repository_count": 4
+    },
+    {
+      "languages": [
+        "HTML",
+        "JavaScript"
+      ],
+      "repository_count": 4
+    },
+    {
+      "languages": [
+        "HTML",
+        "TypeScript"
+      ],
+      "repository_count": 4
+    },
+    {
+      "languages": [
+        "CSS",
+        "TypeScript"
+      ],
+      "repository_count": 3
+    },
+    {
+      "languages": [
+        "JavaScript",
+        "Vue"
+      ],
+      "repository_count": 3
+    },
+    {
+      "languages": [
+        "CSS",
+        "Vue"
+      ],
+      "repository_count": 2
+    },
+    {
+      "languages": [
+        "HTML",
+        "Vue"
+      ],
+      "repository_count": 2
+    },
+    {
+      "languages": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "repository_count": 2
+    },
+    {
+      "languages": [
+        "Blade",
+        "CSS"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "Blade",
+        "JavaScript"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "Blade",
+        "PHP"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "Blade",
+        "Vue"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "CSS",
+        "Java"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "CSS",
+        "PHP"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "CSS",
+        "PowerShell"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "CSS",
+        "Python"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "CSS",
+        "Shell"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "HTML",
+        "Python"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "HTML",
+        "SCSS"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "Java",
+        "PowerShell"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "Java",
+        "Python"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "Java",
+        "Shell"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "JavaScript",
+        "PHP"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "JavaScript",
+        "Pug"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "PHP",
+        "Vue"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "PowerShell",
+        "Python"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "PowerShell",
+        "Shell"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "Python",
+        "Shell"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "SCSS",
+        "TypeScript"
+      ],
+      "repository_count": 1
+    },
+    {
+      "languages": [
+        "TypeScript",
+        "Vue"
+      ],
+      "repository_count": 1
+    }
+  ]
+}

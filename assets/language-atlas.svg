@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="480" viewBox="0 0 760 480" role="img" aria-labelledby="title desc">
+<title id="title">Language Atlas</title>
+<desc id="desc">Equal-size language nodes show repository counts. Lines connect languages found together in repositories; thicker lines mean more shared repositories. Not a proficiency score.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0e1933"/><stop offset="1" stop-color="#15102b"/></linearGradient><linearGradient id="line"><stop stop-color="#6fe8ff"/><stop offset="1" stop-color="#b59bff"/></linearGradient></defs>
+<rect x="1" y="1" width="758" height="478" rx="22" fill="url(#bg)" stroke="#334362"/>
+<g font-family="system-ui, sans-serif">
+<text x="32" y="44" fill="#f1f6ff" font-size="29" font-weight="750" letter-spacing="3">LANGUAGE ATLAS</text>
+<text x="33" y="77" fill="#a8b9d5" font-size="20">29 repos · 15 detected languages · top 6 shown</text>
+<path d="M33 97 H727" stroke="#2b3655"/>
+<path d="M380.0 386.0 L592.2 327.0" stroke="url(#line)" stroke-width="7.00" opacity="0.42"><title>CSS + HTML: 4 shared repositories</title></path>
+<path d="M380.0 386.0 L592.2 209.0" stroke="url(#line)" stroke-width="7.00" opacity="0.42"><title>CSS + JavaScript: 4 shared repositories</title></path>
+<path d="M592.2 327.0 L592.2 209.0" stroke="url(#line)" stroke-width="7.00" opacity="0.42"><title>HTML + JavaScript: 4 shared repositories</title></path>
+<path d="M592.2 327.0 L167.8 327.0" stroke="url(#line)" stroke-width="7.00" opacity="0.42"><title>HTML + TypeScript: 4 shared repositories</title></path>
+<path d="M380.0 386.0 L167.8 327.0" stroke="url(#line)" stroke-width="6.00" opacity="0.42"><title>CSS + TypeScript: 3 shared repositories</title></path>
+<path d="M592.2 209.0 L167.8 209.0" stroke="url(#line)" stroke-width="6.00" opacity="0.42"><title>JavaScript + Vue: 3 shared repositories</title></path>
+<path d="M380.0 386.0 L167.8 209.0" stroke="url(#line)" stroke-width="5.00" opacity="0.42"><title>CSS + Vue: 2 shared repositories</title></path>
+<path d="M592.2 327.0 L167.8 209.0" stroke="url(#line)" stroke-width="5.00" opacity="0.42"><title>HTML + Vue: 2 shared repositories</title></path>
+<path d="M592.2 209.0 L167.8 327.0" stroke="url(#line)" stroke-width="5.00" opacity="0.42"><title>JavaScript + TypeScript: 2 shared repositories</title></path>
+<path d="M380.0 386.0 L380.0 150.0" stroke="url(#line)" stroke-width="4.00" opacity="0.42"><title>CSS + Java: 1 shared repositories</title></path>
+<path d="M167.8 327.0 L167.8 209.0" stroke="url(#line)" stroke-width="4.00" opacity="0.42"><title>TypeScript + Vue: 1 shared repositories</title></path>
+<circle cx="380.0" cy="150.0" r="42" fill="#111b33" stroke="#6fe8ff" stroke-width="3"/>
+<text x="380.0" y="161.0" fill="#6fe8ff" font-size="30" font-weight="750" text-anchor="middle">14</text>
+<text x="380.0" y="216.0" fill="#e9f0ff" font-size="24" font-weight="600" text-anchor="middle">Java</text>
+<circle cx="592.2" cy="209.0" r="42" fill="#111b33" stroke="#b59bff" stroke-width="3"/>
+<text x="592.2" y="220.0" fill="#b59bff" font-size="30" font-weight="750" text-anchor="middle">10</text>
+<text x="592.2" y="275.0" fill="#e9f0ff" font-size="24" font-weight="600" text-anchor="middle">JavaScript</text>
+<circle cx="592.2" cy="327.0" r="42" fill="#111b33" stroke="#80e4c4" stroke-width="3"/>
+<text x="592.2" y="338.0" fill="#80e4c4" font-size="30" font-weight="750" text-anchor="middle">7</text>
+<text x="592.2" y="393.0" fill="#e9f0ff" font-size="24" font-weight="600" text-anchor="middle">HTML</text>
+<circle cx="380.0" cy="386.0" r="42" fill="#111b33" stroke="#ffaed5" stroke-width="3"/>
+<text x="380.0" y="397.0" fill="#ffaed5" font-size="30" font-weight="750" text-anchor="middle">6</text>
+<text x="380.0" y="452.0" fill="#e9f0ff" font-size="24" font-weight="600" text-anchor="middle">CSS</text>
+<circle cx="167.8" cy="327.0" r="42" fill="#111b33" stroke="#92baff" stroke-width="3"/>
+<text x="167.8" y="338.0" fill="#92baff" font-size="30" font-weight="750" text-anchor="middle">4</text>
+<text x="167.8" y="393.0" fill="#e9f0ff" font-size="24" font-weight="600" text-anchor="middle">TypeScript</text>
+<circle cx="167.8" cy="209.0" r="42" fill="#111b33" stroke="#e4d183" stroke-width="3"/>
+<text x="167.8" y="220.0" fill="#e4d183" font-size="30" font-weight="750" text-anchor="middle">3</text>
+<text x="167.8" y="275.0" fill="#e9f0ff" font-size="24" font-weight="600" text-anchor="middle">Vue</text>
+</g></svg>
