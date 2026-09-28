@@ -16,24 +16,10 @@
 Follow the connections through my public code.
 
 <p align="center">
-  <img src="./assets/language-atlas.svg?v=93a4f1580ed5" width="100%" alt="Language Atlas: languages detected in my public repositories, connected by their shared projects." />
+  <img src="./assets/language-atlas.svg?v=be8c185df787" width="100%" alt="Language Atlas: languages detected in my public repositories, connected by their shared projects." />
 </p>
 
 <!-- LANGUAGE_ATLAS:START -->
-
-<details>
-<summary>Language → repository examples</summary>
-
-| Language | Repositories | Example |
-| :-- | --: | :-- |
-| Java | 14 | [Commuting-system-backend](https://github.com/jang-sw/Commuting-system-backend) |
-| JavaScript | 10 | [grpc\_rest\_web\_demo](https://github.com/jang-sw/grpc_rest_web_demo) |
-| HTML | 7 | [FastApi\_demo](https://github.com/jang-sw/FastApi_demo) |
-| CSS | 6 | [Web3-multilingual-community-frontend](https://github.com/jang-sw/Web3-multilingual-community-frontend) |
-| TypeScript | 4 | [Anguar-basic-first](https://github.com/jang-sw/Anguar-basic-first) |
-| Vue | 3 | [Commuting-system-front](https://github.com/jang-sw/Commuting-system-front) |
-
-</details>
 
 <details>
 <summary>Explore all 15 languages</summary>
@@ -57,16 +43,3 @@ Follow the connections through my public code.
 </details>
 
 <!-- LANGUAGE_ATLAS:END -->
-
-<details>
-<summary>Behind the atlas</summary>
-
-Generated from GitHub's language data for my public, non-fork repositories. This profile repository is excluded. Counts show repository presence, not proficiency or recent activity; one repository may contain several languages.
-
-Lines connect languages found in the same project; wider lines mean more shared repositories. Moving lights are a visual effect, not live activity. Reduced-motion preferences are respected.
-
-The snapshot refreshes weekly when the workflow is enabled, and stays visible between updates. No streaks, activity scores, or decorative commits.
-
-[Source data](./data/languages.json) · [Generator & update notes](./docs/LANGUAGE_ATLAS.md) · [Update workflow](https://github.com/jang-sw/jang-sw/actions/workflows/language-atlas.yml)
-
-</details>

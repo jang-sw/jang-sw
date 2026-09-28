@@ -10,11 +10,40 @@
 <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#8dbde6" opacity=".12"/></pattern>
 <clipPath id="frame"><rect x="1" y="1" width="818" height="578" rx="28"/></clipPath>
 </defs>
-<style>.flow{animation:flow 12s linear infinite}@keyframes flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-1000}}.orbit{transform-origin:410px 335px;animation:orbit 70s linear infinite}@keyframes orbit{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.flow,.orbit{animation:none}.flow{display:none}}</style>
+<style>
+.flow{animation:flow 8s linear infinite}
+@keyframes flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-1000}}
+.orbit,.satellite{transform-origin:410px 335px;animation:orbit 22s linear infinite}
+.satellite{animation-duration:12s}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.card{animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(-6px)}50%{transform:translateY(6px)}}
+.card-rim{animation:neon 4s ease-in-out infinite}
+@keyframes neon{0%,100%{stroke-opacity:.3}50%{stroke-opacity:1}}
+.halo{animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.45}50%{opacity:1}}
+.sparkle{animation:twinkle 5s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.95}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.flow{display:none}}
+</style>
 <g clip-path="url(#frame)">
 <rect width="820" height="580" fill="url(#bg)"/>
 <rect width="820" height="580" fill="url(#grid)"/>
-<ellipse cx="440" cy="322" rx="290" ry="240" fill="url(#aura)"/>
+<ellipse class="halo" cx="440" cy="322" rx="290" ry="240" fill="url(#aura)"/>
+<g fill="#b7cfff" aria-hidden="true">
+<circle class="sparkle" cx="63" cy="150" r="1.5" style="animation-delay:-0.00s"/>
+<circle class="sparkle" cx="335" cy="167" r="2.1" style="animation-delay:-0.61s"/>
+<circle class="sparkle" cx="466" cy="145" r="2.7" style="animation-delay:-1.22s"/>
+<circle class="sparkle" cx="758" cy="153" r="1.5" style="animation-delay:-1.83s"/>
+<circle class="sparkle" cx="730" cy="257" r="2.1" style="animation-delay:-2.44s"/>
+<circle class="sparkle" cx="770" cy="466" r="2.7" style="animation-delay:-3.05s"/>
+<circle class="sparkle" cx="640" cy="532" r="1.5" style="animation-delay:-3.66s"/>
+<circle class="sparkle" cx="405" cy="491" r="2.1" style="animation-delay:-4.27s"/>
+<circle class="sparkle" cx="287" cy="534" r="2.7" style="animation-delay:-4.88s"/>
+<circle class="sparkle" cx="60" cy="443" r="1.5" style="animation-delay:-5.49s"/>
+<circle class="sparkle" cx="306" cy="277" r="2.1" style="animation-delay:-6.10s"/>
+<circle class="sparkle" cx="489" cy="402" r="2.7" style="animation-delay:-6.71s"/>
+</g>
 <path d="M-30 530 Q300 590 850 180M-40 550 Q350 590 860 230" fill="none" stroke="#b57ee7" stroke-opacity=".1"/>
 <g font-family="Segoe UI, Arial, sans-serif">
 <text x="36" y="36" fill="#7cdaed" font-size="13" font-weight="600" letter-spacing="3">JANG-SW / CODE CONSTELLATION</text>
@@ -26,86 +55,100 @@
 <g fill="none" stroke="#af91fa" stroke-opacity=".12"><circle cx="410" cy="335" r="96"/><circle cx="410" cy="335" r="110" stroke-dasharray="3 13" class="orbit"/><ellipse cx="410" cy="335" rx="167" ry="70" transform="rotate(-28 410 335)"/></g>
 <g data-language-a="CSS" data-language-b="HTML" data-repositories="4"><title>CSS + HTML: 4 shared repositories</title>
 <path d="M539 483 Q532.5 387.7 676 357" fill="none" stroke="url(#line)" stroke-width="5.00" opacity=".38"/>
-<path class="flow" d="M539 483 Q532.5 387.7 676 357" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-67" style="animation-delay:-0.00s" opacity=".9"/>
+<path class="flow" d="M539 483 Q532.5 387.7 676 357" pathLength="1000" fill="none" stroke="#d8f4ff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="24 976" stroke-dashoffset="-67" style="animation-delay:-0.00s" opacity=".95"/>
 </g>
 <g data-language-a="CSS" data-language-b="JavaScript" data-repositories="4"><title>CSS + JavaScript: 4 shared repositories</title>
 <path d="M539 483 Q516.0 336.9 623 193" fill="none" stroke="url(#line)" stroke-width="5.00" opacity=".38"/>
-<path class="flow" d="M539 483 Q516.0 336.9 623 193" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-134" style="animation-delay:-0.93s" opacity=".9"/>
+<path class="flow" d="M539 483 Q516.0 336.9 623 193" pathLength="1000" fill="none" stroke="#d8f4ff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="24 976" stroke-dashoffset="-134" style="animation-delay:-0.93s" opacity=".95"/>
 </g>
 <g data-language-a="HTML" data-language-b="JavaScript" data-repositories="4"><title>HTML + JavaScript: 4 shared repositories</title>
 <path d="M676 357 Q558.5 297.8 623 193" fill="none" stroke="url(#line)" stroke-width="5.00" opacity=".38"/>
-<path class="flow" d="M676 357 Q558.5 297.8 623 193" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-201" style="animation-delay:-1.86s" opacity=".9"/>
+<path class="flow" d="M676 357 Q558.5 297.8 623 193" pathLength="1000" fill="none" stroke="#d8f4ff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="24 976" stroke-dashoffset="-201" style="animation-delay:-1.86s" opacity=".95"/>
 </g>
 <g data-language-a="HTML" data-language-b="TypeScript" data-repositories="4"><title>HTML + TypeScript: 4 shared repositories</title>
 <path d="M676 357 Q418.7 380.9 172 461" fill="none" stroke="url(#line)" stroke-width="5.00" opacity=".38"/>
-<path class="flow" d="M676 357 Q418.7 380.9 172 461" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-268" style="animation-delay:-2.79s" opacity=".9"/>
+<path class="flow" d="M676 357 Q418.7 380.9 172 461" pathLength="1000" fill="none" stroke="#d8f4ff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="24 976" stroke-dashoffset="-268" style="animation-delay:-2.79s" opacity=".95"/>
 </g>
 <g data-language-a="CSS" data-language-b="TypeScript" data-repositories="3"><title>CSS + TypeScript: 3 shared repositories</title>
 <path d="M539 483 Q376.2 419.9 172 461" fill="none" stroke="url(#line)" stroke-width="4.10" opacity=".38"/>
-<path class="flow" d="M539 483 Q376.2 419.9 172 461" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-335" style="animation-delay:-3.72s" opacity=".9"/>
+<path class="flow" d="M539 483 Q376.2 419.9 172 461" pathLength="1000" fill="none" stroke="#d8f4ff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="24 976" stroke-dashoffset="-335" style="animation-delay:-3.72s" opacity=".95"/>
 </g>
 <g data-language-a="JavaScript" data-language-b="Vue" data-repositories="3"><title>JavaScript + Vue: 3 shared repositories</title>
 <path d="M623 193 Q388.0 290.1 126 332" fill="none" stroke="url(#line)" stroke-width="4.10" opacity=".38"/>
-<path class="flow" d="M623 193 Q388.0 290.1 126 332" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-402" style="animation-delay:-4.65s" opacity=".9"/>
+<path class="flow" d="M623 193 Q388.0 290.1 126 332" pathLength="1000" fill="none" stroke="#d8f4ff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="24 976" stroke-dashoffset="-402" style="animation-delay:-4.65s" opacity=".95"/>
 </g>
 <g data-language-a="CSS" data-language-b="Vue" data-repositories="2"><title>CSS + Vue: 2 shared repositories</title>
 <path d="M539 483 Q361.9 379.9 126 332" fill="none" stroke="url(#line)" stroke-width="3.20" opacity=".38"/>
-<path class="flow" d="M539 483 Q361.9 379.9 126 332" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-469" style="animation-delay:-5.58s" opacity=".9"/>
+<path class="flow" d="M539 483 Q361.9 379.9 126 332" pathLength="1000" fill="none" stroke="#d8f4ff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="24 976" stroke-dashoffset="-469" style="animation-delay:-5.58s" opacity=".95"/>
 </g>
 <g data-language-a="HTML" data-language-b="Vue" data-repositories="2"><title>HTML + Vue: 2 shared repositories</title>
 <path d="M676 357 Q404.4 340.9 126 332" fill="none" stroke="url(#line)" stroke-width="3.20" opacity=".38"/>
-<path class="flow" d="M676 357 Q404.4 340.9 126 332" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-536" style="animation-delay:-6.51s" opacity=".9"/>
+<path class="flow" d="M676 357 Q404.4 340.9 126 332" pathLength="1000" fill="none" stroke="#d8f4ff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="24 976" stroke-dashoffset="-536" style="animation-delay:-6.51s" opacity=".95"/>
 </g>
 <g data-language-a="JavaScript" data-language-b="TypeScript" data-repositories="2"><title>JavaScript + TypeScript: 2 shared repositories</title>
 <path d="M623 193 Q402.2 330.0 172 461" fill="none" stroke="url(#line)" stroke-width="3.20" opacity=".38"/>
-<path class="flow" d="M623 193 Q402.2 330.0 172 461" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-603" style="animation-delay:-7.44s" opacity=".9"/>
+<path class="flow" d="M623 193 Q402.2 330.0 172 461" pathLength="1000" fill="none" stroke="#d8f4ff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="24 976" stroke-dashoffset="-603" style="animation-delay:-7.44s" opacity=".95"/>
 </g>
 <g data-language-a="CSS" data-language-b="Java" data-repositories="1"><title>CSS + Java: 1 shared repositories</title>
 <path d="M539 483 Q378.7 340.6 180 205" fill="none" stroke="url(#line)" stroke-width="2.30" opacity=".38"/>
-<path class="flow" d="M539 483 Q378.7 340.6 180 205" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-670" style="animation-delay:-8.37s" opacity=".9"/>
+<path class="flow" d="M539 483 Q378.7 340.6 180 205" pathLength="1000" fill="none" stroke="#d8f4ff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="24 976" stroke-dashoffset="-670" style="animation-delay:-8.37s" opacity=".95"/>
 </g>
 <g data-language-a="TypeScript" data-language-b="Vue" data-repositories="1"><title>TypeScript + Vue: 1 shared repositories</title>
 <path d="M172 461 Q248.2 373.1 126 332" fill="none" stroke="url(#line)" stroke-width="2.30" opacity=".38"/>
-<path class="flow" d="M172 461 Q248.2 373.1 126 332" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-737" style="animation-delay:-9.30s" opacity=".9"/>
+<path class="flow" d="M172 461 Q248.2 373.1 126 332" pathLength="1000" fill="none" stroke="#d8f4ff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="24 976" stroke-dashoffset="-737" style="animation-delay:-9.30s" opacity=".95"/>
 </g>
+<circle cx="410" cy="335" r="76" fill="none" stroke="#9081ed" stroke-opacity=".3"/>
+<g class="satellite" aria-hidden="true"><circle cx="486" cy="335" r="9" fill="#98ecff" opacity=".6" filter="url(#glow)"/><circle cx="486" cy="335" r="4.5" fill="#d0f8ff"/><circle cx="372" cy="269.2" r="3" fill="#caa4ff"/><circle cx="372" cy="400.8" r="3" fill="#ffadce"/></g>
 <circle cx="410" cy="335" r="54" fill="#121a35" stroke="#4d4b7b"/>
 <circle cx="410" cy="335" r="49" fill="none" stroke="#8a8bd6" stroke-opacity=".17"/>
 <text x="410" y="344" text-anchor="middle" fill="#c5c8ff" font-family="Consolas, monospace" font-size="30" font-weight="700">&lt;/&gt;</text>
+<g class="card" style="animation-delay:-0.00s;animation-duration:6.0s">
 <rect x="99" y="166" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>
-<rect x="99" y="162" width="162" height="86" rx="17" fill="#111a32" stroke="#ffae78" stroke-opacity=".58" stroke-width="1.3"/>
+<rect class="card-rim" x="99" y="162" width="162" height="86" rx="17" fill="#111a32" stroke="#ffae78" stroke-opacity=".58" stroke-width="1.8" style="animation-delay:-0.00s"/>
 <path d="M119 162H222" stroke="#ffae78" stroke-width="2.8" stroke-linecap="round"/>
 <circle cx="241" cy="182" r="3" fill="#ffae78" filter="url(#glow)"/>
 <text x="117" y="196" fill="#ffae78" font-size="22" font-weight="700">Java</text>
 <text x="117" y="232" fill="#f4f6ff" font-size="31" font-weight="700">14<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>
+</g>
+<g class="card" style="animation-delay:-1.10s;animation-duration:6.7s">
 <rect x="542" y="154" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>
-<rect x="542" y="150" width="162" height="86" rx="17" fill="#111a32" stroke="#f8de7e" stroke-opacity=".58" stroke-width="1.3"/>
+<rect class="card-rim" x="542" y="150" width="162" height="86" rx="17" fill="#111a32" stroke="#f8de7e" stroke-opacity=".58" stroke-width="1.8" style="animation-delay:-0.80s"/>
 <path d="M562 150H665" stroke="#f8de7e" stroke-width="2.8" stroke-linecap="round"/>
 <circle cx="684" cy="170" r="3" fill="#f8de7e" filter="url(#glow)"/>
 <text x="560" y="184" fill="#f8de7e" font-size="22" font-weight="700">JavaScript</text>
 <text x="560" y="220" fill="#f4f6ff" font-size="31" font-weight="700">10<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>
+</g>
+<g class="card" style="animation-delay:-2.20s;animation-duration:7.4s">
 <rect x="595" y="318" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>
-<rect x="595" y="314" width="162" height="86" rx="17" fill="#111a32" stroke="#ff8fad" stroke-opacity=".58" stroke-width="1.3"/>
+<rect class="card-rim" x="595" y="314" width="162" height="86" rx="17" fill="#111a32" stroke="#ff8fad" stroke-opacity=".58" stroke-width="1.8" style="animation-delay:-1.60s"/>
 <path d="M615 314H718" stroke="#ff8fad" stroke-width="2.8" stroke-linecap="round"/>
 <circle cx="737" cy="334" r="3" fill="#ff8fad" filter="url(#glow)"/>
 <text x="613" y="348" fill="#ff8fad" font-size="22" font-weight="700">HTML</text>
 <text x="613" y="384" fill="#f4f6ff" font-size="31" font-weight="700">7<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>
+</g>
+<g class="card" style="animation-delay:-3.30s;animation-duration:6.0s">
 <rect x="458" y="444" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>
-<rect x="458" y="440" width="162" height="86" rx="17" fill="#111a32" stroke="#a69aff" stroke-opacity=".58" stroke-width="1.3"/>
+<rect class="card-rim" x="458" y="440" width="162" height="86" rx="17" fill="#111a32" stroke="#a69aff" stroke-opacity=".58" stroke-width="1.8" style="animation-delay:-2.40s"/>
 <path d="M478 440H581" stroke="#a69aff" stroke-width="2.8" stroke-linecap="round"/>
 <circle cx="600" cy="460" r="3" fill="#a69aff" filter="url(#glow)"/>
 <text x="476" y="474" fill="#a69aff" font-size="22" font-weight="700">CSS</text>
 <text x="476" y="510" fill="#f4f6ff" font-size="31" font-weight="700">6<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>
+</g>
+<g class="card" style="animation-delay:-4.40s;animation-duration:6.7s">
 <rect x="91" y="422" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>
-<rect x="91" y="418" width="162" height="86" rx="17" fill="#111a32" stroke="#73d4ff" stroke-opacity=".58" stroke-width="1.3"/>
+<rect class="card-rim" x="91" y="418" width="162" height="86" rx="17" fill="#111a32" stroke="#73d4ff" stroke-opacity=".58" stroke-width="1.8" style="animation-delay:-3.20s"/>
 <path d="M111 418H214" stroke="#73d4ff" stroke-width="2.8" stroke-linecap="round"/>
 <circle cx="233" cy="438" r="3" fill="#73d4ff" filter="url(#glow)"/>
 <text x="109" y="452" fill="#73d4ff" font-size="22" font-weight="700">TypeScript</text>
 <text x="109" y="488" fill="#f4f6ff" font-size="31" font-weight="700">4<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>
+</g>
+<g class="card" style="animation-delay:-5.50s;animation-duration:7.4s">
 <rect x="45" y="293" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>
-<rect x="45" y="289" width="162" height="86" rx="17" fill="#111a32" stroke="#73efc5" stroke-opacity=".58" stroke-width="1.3"/>
+<rect class="card-rim" x="45" y="289" width="162" height="86" rx="17" fill="#111a32" stroke="#73efc5" stroke-opacity=".58" stroke-width="1.8" style="animation-delay:-4.00s"/>
 <path d="M65 289H168" stroke="#73efc5" stroke-width="2.8" stroke-linecap="round"/>
 <circle cx="187" cy="309" r="3" fill="#73efc5" filter="url(#glow)"/>
 <text x="63" y="323" fill="#73efc5" font-size="22" font-weight="700">Vue</text>
 <text x="63" y="359" fill="#f4f6ff" font-size="31" font-weight="700">3<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>
+</g>
 <text x="36" y="555" fill="#99aacc" font-size="14">TOP 6 LANGUAGES <tspan fill="#4d607f"> / </tspan> SHARED REPOSITORIES CONNECT THE CARDS</text>
 </g></g><rect x="1" y="1" width="818" height="578" rx="28" fill="none" stroke="url(#rim)" stroke-width="1.5"/></svg>

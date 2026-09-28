@@ -211,11 +211,30 @@ def render_svg(model: dict) -> str:
         '<pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#8dbde6" opacity=".12"/></pattern>',
         '<clipPath id="frame"><rect x="1" y="1" width="818" height="578" rx="28"/></clipPath>',
         '</defs>',
-        '<style>.flow{animation:flow 12s linear infinite}@keyframes flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-1000}}.orbit{transform-origin:410px 335px;animation:orbit 70s linear infinite}@keyframes orbit{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.flow,.orbit{animation:none}.flow{display:none}}</style>',
+        '''<style>
+.flow{animation:flow 8s linear infinite}
+@keyframes flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-1000}}
+.orbit,.satellite{transform-origin:410px 335px;animation:orbit 22s linear infinite}
+.satellite{animation-duration:12s}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.card{animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(-6px)}50%{transform:translateY(6px)}}
+.card-rim{animation:neon 4s ease-in-out infinite}
+@keyframes neon{0%,100%{stroke-opacity:.3}50%{stroke-opacity:1}}
+.halo{animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.45}50%{opacity:1}}
+.sparkle{animation:twinkle 5s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.95}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.flow{display:none}}
+</style>''',
         '<g clip-path="url(#frame)">',
         '<rect width="820" height="580" fill="url(#bg)"/>',
         '<rect width="820" height="580" fill="url(#grid)"/>',
-        '<ellipse cx="440" cy="322" rx="290" ry="240" fill="url(#aura)"/>',
+        '<ellipse class="halo" cx="440" cy="322" rx="290" ry="240" fill="url(#aura)"/>',
+        '<g fill="#b7cfff" aria-hidden="true">',
+        *[f'<circle class="sparkle" cx="{sx}" cy="{sy}" r="{1.5 + (index % 3) * .6}" style="animation-delay:-{index * .61:.2f}s"/>'
+          for index, (sx, sy) in enumerate(((63,150),(335,167),(466,145),(758,153),(730,257),(770,466),(640,532),(405,491),(287,534),(60,443),(306,277),(489,402)))],
+        '</g>',
         '<path d="M-30 530 Q300 590 850 180M-40 550 Q350 590 860 230" fill="none" stroke="#b57ee7" stroke-opacity=".1"/>',
         '<g font-family="Segoe UI, Arial, sans-serif">',
         f'<text x="36" y="36" fill="#7cdaed" font-size="13" font-weight="600" letter-spacing="3">{xml(model["owner"].upper())} / CODE CONSTELLATION</text>',
@@ -241,11 +260,13 @@ def render_svg(model: dict) -> str:
         out.extend([
             f'<g data-language-a="{xml(first)}" data-language-b="{xml(second)}" data-repositories="{edge["repository_count"]}"><title>{xml(title)}</title>',
             f'<path d="{path}" fill="none" stroke="url(#line)" stroke-width="{width:.2f}" opacity=".38"/>',
-            f'<path class="flow" d="{path}" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="{-67 * (index + 1)}" style="animation-delay:-{index * .93:.2f}s" opacity=".9"/>',
+            f'<path class="flow" d="{path}" pathLength="1000" fill="none" stroke="#d8f4ff" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="24 976" stroke-dashoffset="{-67 * (index + 1)}" style="animation-delay:-{index * .93:.2f}s" opacity=".95"/>',
             '</g>',
         ])
     if languages:
         out.extend([
+            '<circle cx="410" cy="335" r="76" fill="none" stroke="#9081ed" stroke-opacity=".3"/>',
+            '<g class="satellite" aria-hidden="true"><circle cx="486" cy="335" r="9" fill="#98ecff" opacity=".6" filter="url(#glow)"/><circle cx="486" cy="335" r="4.5" fill="#d0f8ff"/><circle cx="372" cy="269.2" r="3" fill="#caa4ff"/><circle cx="372" cy="400.8" r="3" fill="#ffadce"/></g>',
             '<circle cx="410" cy="335" r="54" fill="#121a35" stroke="#4d4b7b"/>',
             '<circle cx="410" cy="335" r="49" fill="none" stroke="#8a8bd6" stroke-opacity=".17"/>',
             '<text x="410" y="344" text-anchor="middle" fill="#c5c8ff" font-family="Consolas, monospace" font-size="30" font-weight="700">&lt;/&gt;</text>',
@@ -254,12 +275,14 @@ def render_svg(model: dict) -> str:
         x, y = positions[lang["name"]]
         color = palette.get(lang["name"], COLORS[index])
         out.extend([
+            f'<g class="card" style="animation-delay:-{index * 1.1:.2f}s;animation-duration:{6 + (index % 3) * .7:.1f}s">',
             f'<rect x="{x - 81}" y="{y - 39}" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>',
-            f'<rect x="{x - 81}" y="{y - 43}" width="162" height="86" rx="17" fill="#111a32" stroke="{color}" stroke-opacity=".58" stroke-width="1.3"/>',
+            f'<rect class="card-rim" x="{x - 81}" y="{y - 43}" width="162" height="86" rx="17" fill="#111a32" stroke="{color}" stroke-opacity=".58" stroke-width="1.8" style="animation-delay:-{index * .8:.2f}s"/>',
             f'<path d="M{x - 61} {y - 43}H{x + 42}" stroke="{color}" stroke-width="2.8" stroke-linecap="round"/>',
             f'<circle cx="{x + 61}" cy="{y - 23}" r="3" fill="{color}" filter="url(#glow)"/>',
             f'<text x="{x - 63}" y="{y - 9}" fill="{color}" font-size="22" font-weight="700">{xml(short(lang["name"], 11))}</text>',
             f'<text x="{x - 63}" y="{y + 27}" fill="#f4f6ff" font-size="31" font-weight="700">{lang["repository_count"]}<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>',
+            '</g>',
         ])
     out.extend([
         f'<text x="36" y="555" fill="#99aacc" font-size="14">TOP {len(languages)} LANGUAGES <tspan fill="#4d607f"> / </tspan> SHARED REPOSITORIES CONNECT THE CARDS</text>',
@@ -277,15 +300,8 @@ def markdown(value: str) -> str:
 def render_table(model: dict, japanese: bool = False) -> str:
     if not model["languages"]:
         return "公開リポジトリの言語データはまだありません。" if japanese else "No public repository language data yet."
-    heading = "| 言語 | リポジトリ数 | コードの例 |" if japanese else "| Language | Repositories | Example |"
-    examples_label = "言語からコードの例を見る" if japanese else "Language → repository examples"
-    lines = ["<details>", f"<summary>{examples_label}</summary>", "", heading, "| :-- | --: | :-- |"]
-    for lang in model["languages"][:6]:
-        example = lang["example"]
-        archived = " · archived" if example["archived"] else ""
-        lines.append(f'| {markdown(lang["name"])} | {lang["repository_count"]} | [{markdown(example["name"])}]({example["url"]}){archived} |')
     summary = f'全 {model["language_count"]} 言語のリポジトリを見る' if japanese else f'Explore all {model["language_count"]} languages'
-    lines.extend(["", "</details>", "", "<details>", f"<summary>{summary}</summary>", ""])
+    lines = ["<details>", f"<summary>{summary}</summary>", ""]
     by_name = {repo["name"]: repo for repo in model["repositories"]}
     for lang in model["languages"]:
         links = []

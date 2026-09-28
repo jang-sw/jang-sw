@@ -16,24 +16,10 @@
 公開コードに広がる言語のつながりをたどる。
 
 <p align="center">
-  <img src="./assets/language-atlas.svg?v=93a4f1580ed5" width="100%" alt="Language Atlas：公開リポジトリに含まれる言語と、同じプロジェクトでの組み合わせ。" />
+  <img src="./assets/language-atlas.svg?v=be8c185df787" width="100%" alt="Language Atlas：公開リポジトリに含まれる言語と、同じプロジェクトでの組み合わせ。" />
 </p>
 
 <!-- LANGUAGE_ATLAS:START -->
-
-<details>
-<summary>言語からコードの例を見る</summary>
-
-| 言語 | リポジトリ数 | コードの例 |
-| :-- | --: | :-- |
-| Java | 14 | [Commuting-system-backend](https://github.com/jang-sw/Commuting-system-backend) |
-| JavaScript | 10 | [grpc\_rest\_web\_demo](https://github.com/jang-sw/grpc_rest_web_demo) |
-| HTML | 7 | [FastApi\_demo](https://github.com/jang-sw/FastApi_demo) |
-| CSS | 6 | [Web3-multilingual-community-frontend](https://github.com/jang-sw/Web3-multilingual-community-frontend) |
-| TypeScript | 4 | [Anguar-basic-first](https://github.com/jang-sw/Anguar-basic-first) |
-| Vue | 3 | [Commuting-system-front](https://github.com/jang-sw/Commuting-system-front) |
-
-</details>
 
 <details>
 <summary>全 15 言語のリポジトリを見る</summary>
@@ -57,16 +43,3 @@
 </details>
 
 <!-- LANGUAGE_ATLAS:END -->
-
-<details>
-<summary>このマップについて</summary>
-
-GitHub の言語データをもとに、公開・非フォークのリポジトリを集計しています。このプロフィール用リポジトリは対象外です。件数は言語が含まれるリポジトリ数であり、習熟度や最近の活動量ではありません。1つのリポジトリに複数の言語が含まれる場合があります。
-
-同じプロジェクトで使われる言語を線で結び、共通するリポジトリが多いほど線を太くしています。光の動きは演出であり、リアルタイムの活動量ではありません。「視差効果を減らす」設定にも対応しています。
-
-ワークフローが有効な間は週1回更新し、更新の間も最後のマップを表示します。連続コミット数や活動スコアは使いません。
-
-[元データ](./data/languages.json) · [生成・更新の仕組み](./docs/LANGUAGE_ATLAS.md) · [更新ワークフロー](https://github.com/jang-sw/jang-sw/actions/workflows/language-atlas.yml)
-
-</details>

@@ -115,7 +115,32 @@ class LanguageAtlasTests(unittest.TestCase):
         self.assertIn("@keyframes", css)
         self.assertRegex(css, r"@media\s*\(\s*prefers-reduced-motion\s*:\s*reduce\s*\)")
         reduced_motion = css[css.index("prefers-reduced-motion"):]
-        self.assertRegex(reduced_motion, r"animation\s*:\s*none\b")
+        self.assertRegex(reduced_motion, r"\*\s*\{[^}]*animation\s*:\s*none\s*!important\b")
+        self.assertRegex(reduced_motion, r"\.flow\s*\{[^}]*display\s*:\s*none\b")
+
+    def test_decorative_animation_layers_are_present_and_slow(self):
+        model = atlas.build_model("jang-sw", fixture())
+        svg = ET.fromstring(atlas.render_svg(model))
+        css = "\n".join(element.text or "" for element in svg.iter() if element.tag.rsplit("}", 1)[-1] == "style")
+        frames = set(re.findall(r"@keyframes\s+([\w-]+)", css))
+        animated_classes = {"card", "card-rim", "halo", "sparkle", "satellite", "orbit", "flow"}
+        elements = {name: [element for element in svg.iter() if name in element.get("class", "").split()] for name in animated_classes}
+        for name in animated_classes:
+            with self.subTest(layer=name):
+                self.assertTrue(elements[name], f"The {name} animation must be attached to a visible SVG element.")
+                rule = re.search(r"\." + re.escape(name) + r"(?![\w-])[^{}]*\{([^{}]+)\}", css)
+                self.assertIsNotNone(rule)
+                animation = re.search(r"(?:^|;)\s*animation\s*:\s*([^;]+)", rule.group(1))
+                self.assertIsNotNone(animation)
+                value = animation.group(1)
+                self.assertTrue(any(re.search(r"\b" + re.escape(frame) + r"\b", value) for frame in frames))
+                durations = re.findall(r"(?<![\w.-])([\d.]+)(ms|s)\b", value)
+                self.assertTrue(durations)
+                duration, unit = durations[0]
+                seconds = float(duration) / (1000 if unit == "ms" else 1)
+                self.assertGreater(seconds, 3, "Decorative animation should remain slow, not flash rapidly.")
+        self.assertEqual(len(elements["card"]), min(6, model["language_count"]))
+        self.assertTrue(any(child.tag.rsplit("}", 1)[-1] == "circle" for satellite in elements["satellite"] for child in satellite.iter()))
 
     def test_svg_is_self_contained_vector_without_active_content(self):
         source = atlas.render_svg(atlas.build_model("jang-sw", fixture()))
@@ -230,14 +255,39 @@ class LanguageAtlasTests(unittest.TestCase):
     def test_details_link_all_detected_languages_to_actual_repos(self):
         names = {f"Language{index}": 10 for index in range(8)}
         model = atlas.build_model("jang-sw", {"repositories": [repo("project")], "languages_by_repo": {"project": names}})
-        table = atlas.render_table(model)
-        self.assertIn("Explore all 8 languages", table)
-        self.assertEqual(sum(line.startswith("| Language") and not line.startswith("| Language |") for line in table.splitlines()), 6)
-        visible, details = table.split("<details>", 1)
-        self.assertNotIn("| Language |", visible, "The repeated top-language table should start collapsed.")
-        for name in names:
-            self.assertIn(f"**{name}** (1 repos)", details)
-        self.assertGreaterEqual(details.count("https://github.com/jang-sw/project"), 8)
+        for japanese in (False, True):
+            with self.subTest(japanese=japanese):
+                details = atlas.render_table(model, japanese)
+                summary = "全 8 言語のリポジトリを見る" if japanese else "Explore all 8 languages"
+                self.assertIn(f"<summary>{summary}</summary>", details)
+                self.assertEqual(details.count("<details>"), 1)
+                self.assertEqual(details.count("</details>"), 1)
+                self.assertEqual(details.count("<summary>"), 1)
+                self.assertFalse(any(line.lstrip().startswith("|") for line in details.splitlines()), "The removed examples table must not be rendered.")
+                self.assertNotIn("Language → repository examples", details)
+                self.assertNotIn("言語からコードの例を見る", details)
+                count = "1 リポジトリ" if japanese else "1 repos"
+                for name in names:
+                    self.assertIn(f"**{name}** ({count})", details)
+                self.assertEqual(details.count("https://github.com/jang-sw/project"), 8)
+
+    def test_regeneration_does_not_restore_removed_profile_sections(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in ("README.md", "README.ja.md"):
+                (root / name).write_text(f"Intro\n{atlas.START}\n{atlas.END}\n", encoding="utf-8")
+            model = atlas.build_model("jang-sw", fixture())
+            outputs = atlas.generate_outputs(root, model)
+            atlas.write_outputs(outputs)
+            regenerated = atlas.generate_outputs(root, model)
+            self.assertEqual(outputs, regenerated)
+            for name in ("README.md", "README.ja.md"):
+                text = regenerated[root / name]
+                for removed in ("Language → repository examples", "Behind the atlas", "言語からコードの例を見る", "このマップについて"):
+                    self.assertNotIn(removed, text)
+                self.assertFalse(any(line.lstrip().startswith("|") for line in text.splitlines()))
+                self.assertEqual(text.count("<details>"), 1)
+                self.assertEqual(text.count("</details>"), 1)
 
 
 if __name__ == "__main__":
