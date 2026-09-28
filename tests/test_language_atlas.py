@@ -106,17 +106,48 @@ class LanguageAtlasTests(unittest.TestCase):
         gradient = svg.find(".//{http://www.w3.org/2000/svg}linearGradient[@id='line']")
         self.assertEqual(gradient.get("gradientUnits"), "userSpaceOnUse")
 
-    def test_animated_svg_has_reduced_motion_fallback(self):
+    def test_reduced_motion_keeps_explicitly_requested_animation_slower(self):
         svg = ET.fromstring(atlas.render_svg(atlas.build_model("jang-sw", fixture())))
         css = "\n".join(
             element.text or "" for element in svg.iter()
             if element.tag.rsplit("}", 1)[-1] == "style"
         )
         self.assertIn("@keyframes", css)
-        self.assertRegex(css, r"@media\s*\(\s*prefers-reduced-motion\s*:\s*reduce\s*\)")
-        reduced_motion = css[css.index("prefers-reduced-motion"):]
-        self.assertRegex(reduced_motion, r"\*\s*\{[^}]*animation\s*:\s*none\s*!important\b")
-        self.assertRegex(reduced_motion, r"\.flow\s*\{[^}]*display\s*:\s*none\b")
+        media = re.search(r"@media\s*\(\s*prefers-reduced-motion\s*:\s*reduce\s*\)", css)
+        self.assertIsNotNone(media)
+        base_css, reduced_motion = css[:media.start()], css[media.end():]
+        self.assertNotRegex(reduced_motion, r"animation(?:-name)?\s*:\s*none\b")
+        self.assertNotRegex(reduced_motion, r"animation-play-state\s*:\s*paused\b")
+        self.assertNotRegex(reduced_motion, r"display\s*:\s*none\b")
+
+        def duration(declarations):
+            result = None
+            for property_name, value in re.findall(r"([^;{}:]+)\s*:\s*([^;{}]+)", declarations):
+                if property_name.strip() not in {"animation", "animation-duration"}:
+                    continue
+                match = re.search(r"(?<![\w.-])([\d.]+)(ms|s)\b", value)
+                if match:
+                    result = float(match.group(1)) / (1000 if match.group(2) == "ms" else 1)
+            return result
+
+        def declarations_for_class(stylesheet, name):
+            bodies = [body for selectors, body in re.findall(r"([^{}]+)\{([^{}]*)\}", stylesheet)
+                      if "." + name in {selector.strip() for selector in selectors.split(",")}]
+            return ";".join(bodies)
+
+        for name in ("card", "card-rim", "halo", "sparkle", "satellite", "orbit", "flow"):
+            with self.subTest(layer=name):
+                base_duration = duration(declarations_for_class(base_css, name))
+                self.assertIsNotNone(base_duration)
+                inline_durations = [duration(element.get("style", "")) for element in svg.iter()
+                                    if name in element.get("class", "").split()]
+                slowest_original = max([base_duration] + [value for value in inline_durations if value is not None])
+                reduced_declarations = declarations_for_class(reduced_motion, name)
+                reduced_duration = duration(reduced_declarations)
+                self.assertIsNotNone(reduced_duration, "Every animated layer needs an explicit reduced-motion duration.")
+                self.assertGreaterEqual(reduced_duration, 2 * slowest_original)
+                if any(value is not None for value in inline_durations):
+                    self.assertRegex(reduced_declarations, r"animation(?:-duration)?\s*:[^;]*!important\b", "Reduced duration must override inline durations.")
 
     def test_decorative_animation_layers_are_present_and_slow(self):
         model = atlas.build_model("jang-sw", fixture())

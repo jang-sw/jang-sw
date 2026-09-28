@@ -16,7 +16,7 @@
 Follow the connections through my public code.
 
 <p align="center">
-  <img src="./assets/language-atlas.svg?v=be8c185df787" width="100%" alt="Language Atlas: languages detected in my public repositories, connected by their shared projects." />
+  <img src="./assets/language-atlas.svg?v=4676936704ef" width="100%" alt="Language Atlas: languages detected in my public repositories, connected by their shared projects." />
 </p>
 
 <!-- LANGUAGE_ATLAS:START -->

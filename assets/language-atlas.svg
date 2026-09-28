@@ -24,7 +24,15 @@
 @keyframes breathe{0%,100%{opacity:.45}50%{opacity:1}}
 .sparkle{animation:twinkle 5s ease-in-out infinite}
 @keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.95}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important}.flow{display:none}}
+@media(prefers-reduced-motion:reduce){
+.flow{animation-duration:16s}
+.orbit{animation-duration:44s}
+.satellite{animation-duration:24s}
+.card{animation-duration:15s!important}
+.card-rim{animation-duration:8s}
+.halo{animation-duration:14s}
+.sparkle{animation-duration:10s}
+}
 </style>
 <g clip-path="url(#frame)">
 <rect width="820" height="580" fill="url(#bg)"/>

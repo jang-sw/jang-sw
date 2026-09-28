@@ -16,7 +16,7 @@
 公開コードに広がる言語のつながりをたどる。
 
 <p align="center">
-  <img src="./assets/language-atlas.svg?v=be8c185df787" width="100%" alt="Language Atlas：公開リポジトリに含まれる言語と、同じプロジェクトでの組み合わせ。" />
+  <img src="./assets/language-atlas.svg?v=4676936704ef" width="100%" alt="Language Atlas：公開リポジトリに含まれる言語と、同じプロジェクトでの組み合わせ。" />
 </p>
 
 <!-- LANGUAGE_ATLAS:START -->
