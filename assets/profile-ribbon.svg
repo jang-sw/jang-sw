@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="142" viewBox="0 0 1200 142" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Learn. Build. Explore.</title>
+  <desc id="desc">Korean and Japanese, JLPT N1. An animated blue and violet light ribbon.</desc>
+  <defs>
+    <linearGradient id="surface" x1="0" y1="0" x2="1200" y2="142" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#081228"/><stop offset=".6" stop-color="#0e1737"/><stop offset="1" stop-color="#18132c"/>
+    </linearGradient>
+    <linearGradient id="light" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38dcff"/><stop offset=".45" stop-color="#619bff"/><stop offset="1" stop-color="#be80ff"/>
+    </linearGradient>
+    <filter id="glow" x="-300%" y="-300%" width="700%" height="700%"><feGaussianBlur stdDeviation="3"/></filter>
+    <clipPath id="clip"><rect x="1" y="1" width="1198" height="140" rx="20"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect x="1" y="1" width="1198" height="140" rx="20" fill="url(#surface)" stroke="#263e69"/>
+    <path d="M0 114C190 62 291 174 496 115S875 59 1200 111" stroke="url(#light)" stroke-opacity=".25"/>
+    <path d="M0 127C192 72 287 156 496 130S915 69 1200 122" stroke="url(#light)" stroke-opacity=".15"/>
+    <path d="M58 36L61 27L64 36L73 39L64 42L61 51L58 42L49 39Z" fill="#6bddff"/>
+    <g font-family="Segoe UI, Arial, sans-serif">
+      <text x="90" y="49" fill="#eaf0ff" font-size="29" font-weight="600" letter-spacing="1">LEARN. BUILD. EXPLORE.</text>
+      <text x="50" y="90" fill="#b7c8e6" font-size="22">Korean <tspan fill="#619bff">·</tspan> Japanese <tspan fill="#619bff">·</tspan> JLPT N1</text>
+      <text x="1145" y="81" text-anchor="end" fill="#89acff" font-size="32" font-weight="600" letter-spacing="2">&lt; / &gt;</text>
+    </g>
+    <circle r="5" fill="#72daff" filter="url(#glow)"><animateMotion dur="9s" repeatCount="indefinite" path="M-10 114C190 62 291 174 496 115S875 59 1210 111"/></circle>
+    <circle r="2" fill="#d5f9ff"><animateMotion dur="9s" repeatCount="indefinite" path="M-10 114C190 62 291 174 496 115S875 59 1210 111"/></circle>
+  </g>
+</svg>
