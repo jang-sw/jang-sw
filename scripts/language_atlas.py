@@ -13,7 +13,6 @@ import hashlib
 import html
 import itertools
 import json
-import math
 import os
 from pathlib import Path
 import re
@@ -195,39 +194,77 @@ def render_svg(model: dict) -> str:
     languages = model["languages"][:6]
     selected = {lang["name"] for lang in languages}
     connections = [edge for edge in model["connections"] if set(edge["languages"]) <= selected]
-    positions = {}
-    # Fixed equal-size nodes: location and size encode no ranking or proficiency.
-    for index, lang in enumerate(languages):
-        angle = -math.pi / 2 + index * 2 * math.pi / max(len(languages), 1)
-        positions[lang["name"]] = (380 + 245 * math.cos(angle), 268 + 118 * math.sin(angle))
+    # Equal-size cards; position and motion are decoration, never a skill score.
+    layout = [(180, 205), (623, 193), (676, 357), (539, 483), (172, 461), (126, 332)]
+    positions = {lang["name"]: layout[index] for index, lang in enumerate(languages)}
+    palette = {"Java": "#ffae78", "JavaScript": "#f8de7e", "HTML": "#ff8fad", "CSS": "#a69aff", "TypeScript": "#73d4ff", "Vue": "#73efc5"}
     out = [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="760" height="480" viewBox="0 0 760 480" role="img" aria-labelledby="title desc">',
-        '<title id="title">Language Atlas</title>',
-        '<desc id="desc">Equal-size language nodes show repository counts. Lines connect languages found together in repositories; thicker lines mean more shared repositories. Not a proficiency score.</desc>',
-        '<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0e1933"/><stop offset="1" stop-color="#15102b"/></linearGradient><linearGradient id="line" gradientUnits="userSpaceOnUse" x1="0" y1="100" x2="760" y2="480"><stop stop-color="#6fe8ff"/><stop offset="1" stop-color="#b59bff"/></linearGradient></defs>',
-        '<rect x="1" y="1" width="758" height="478" rx="22" fill="url(#bg)" stroke="#334362"/>',
-        '<g font-family="system-ui, sans-serif">',
-        '<text x="32" y="44" fill="#f1f6ff" font-size="29" font-weight="750" letter-spacing="3">LANGUAGE ATLAS</text>',
-        f'<text x="33" y="77" fill="#a8b9d5" font-size="20">{model["repository_count"]} repos · {model["language_count"]} detected languages · top {len(languages)} shown</text>',
-        '<path d="M33 97 H727" stroke="#2b3655"/>',
+        '<svg xmlns="http://www.w3.org/2000/svg" width="820" height="580" viewBox="0 0 820 580" role="img" aria-labelledby="title desc">',
+        '<title id="title">Language Atlas — a constellation of public code</title>',
+        '<desc id="desc">Language cards show actual repository counts. Curved connections join languages used in the same repositories; wider lines mean more shared repositories. Moving lights are decorative, not live traffic or recent activity.</desc>',
+        '<defs>',
+        '<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#07142b"/><stop offset=".48" stop-color="#11132f"/><stop offset="1" stop-color="#251336"/></linearGradient>',
+        '<radialGradient id="aura"><stop stop-color="#7c5cff" stop-opacity=".30"/><stop offset="1" stop-color="#7c5cff" stop-opacity="0"/></radialGradient>',
+        '<linearGradient id="line" gradientUnits="userSpaceOnUse" x1="60" y1="160" x2="730" y2="500"><stop stop-color="#61e4ff"/><stop offset=".52" stop-color="#ab8bff"/><stop offset="1" stop-color="#ff8ba7"/></linearGradient>',
+        '<linearGradient id="rim" x2="1" y2="1"><stop stop-color="#61e4ff" stop-opacity=".65"/><stop offset=".48" stop-color="#8679df" stop-opacity=".13"/><stop offset="1" stop-color="#ff8ba7" stop-opacity=".6"/></linearGradient>',
+        '<filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="2.4"/></filter>',
+        '<pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#8dbde6" opacity=".12"/></pattern>',
+        '<clipPath id="frame"><rect x="1" y="1" width="818" height="578" rx="28"/></clipPath>',
+        '</defs>',
+        '<style>.flow{animation:flow 12s linear infinite}@keyframes flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-1000}}.orbit{transform-origin:410px 335px;animation:orbit 70s linear infinite}@keyframes orbit{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.flow,.orbit{animation:none}.flow{display:none}}</style>',
+        '<g clip-path="url(#frame)">',
+        '<rect width="820" height="580" fill="url(#bg)"/>',
+        '<rect width="820" height="580" fill="url(#grid)"/>',
+        '<ellipse cx="440" cy="322" rx="290" ry="240" fill="url(#aura)"/>',
+        '<path d="M-30 530 Q300 590 850 180M-40 550 Q350 590 860 230" fill="none" stroke="#b57ee7" stroke-opacity=".1"/>',
+        '<g font-family="Segoe UI, Arial, sans-serif">',
+        f'<text x="36" y="36" fill="#7cdaed" font-size="13" font-weight="600" letter-spacing="3">{xml(model["owner"].upper())} / CODE CONSTELLATION</text>',
+        '<text x="34" y="86" fill="#f3f4ff" font-size="43" font-weight="750" letter-spacing="-1.5">Language <tspan fill="#bc9dff">Atlas.</tspan></text>',
+        '<rect x="603" y="35" width="181" height="67" rx="16" fill="#101b34" stroke="#485178"/>',
+        f'<text x="626" y="65" fill="#f0f7ff" font-size="25" font-weight="700">{model["repository_count"]}<tspan font-size="15" fill="#a9bbd9"> repos</tspan><tspan fill="#586783"> / </tspan>{model["language_count"]}</text>',
+        '<text x="626" y="85" fill="#9bb2d3" font-size="12" letter-spacing="1">DETECTED LANGUAGES</text>',
+        '<path d="M36 116H784" stroke="url(#rim)"/>',
+        '<g fill="none" stroke="#af91fa" stroke-opacity=".12"><circle cx="410" cy="335" r="96"/><circle cx="410" cy="335" r="110" stroke-dasharray="3 13" class="orbit"/><ellipse cx="410" cy="335" rx="167" ry="70" transform="rotate(-28 410 335)"/></g>',
     ]
     if not languages:
-        out.append('<text x="380" y="266" text-anchor="middle" fill="#a8b9d5" font-size="24">No public language data yet</text>')
-    for edge in connections:
-        x1, y1 = positions[edge["languages"][0]]
-        x2, y2 = positions[edge["languages"][1]]
-        width = 3 + 4 * edge["repository_count"] / max(e["repository_count"] for e in connections)
-        title = f'{edge["languages"][0]} + {edge["languages"][1]}: {edge["repository_count"]} shared repositories'
-        out.append(f'<path d="M{x1:.1f} {y1:.1f} L{x2:.1f} {y2:.1f}" stroke="url(#line)" stroke-width="{width:.2f}" opacity="0.42"><title>{xml(title)}</title></path>')
+        out.append('<text x="410" y="336" text-anchor="middle" fill="#b7c7de" font-size="24">Your next idea starts here.</text>')
+    maximum = max((edge["repository_count"] for edge in connections), default=1)
+    for index, edge in enumerate(connections):
+        first, second = edge["languages"]
+        x1, y1 = positions[first]
+        x2, y2 = positions[second]
+        mx, my = (x1 + x2) / 2, (y1 + y2) / 2
+        cx, cy = mx + (410 - mx) * .38, my + (335 - my) * .38
+        path = f'M{x1} {y1} Q{cx:.1f} {cy:.1f} {x2} {y2}'
+        width = 1.4 + 3.6 * edge["repository_count"] / maximum
+        title = f'{first} + {second}: {edge["repository_count"]} shared repositories'
+        out.extend([
+            f'<g data-language-a="{xml(first)}" data-language-b="{xml(second)}" data-repositories="{edge["repository_count"]}"><title>{xml(title)}</title>',
+            f'<path d="{path}" fill="none" stroke="url(#line)" stroke-width="{width:.2f}" opacity=".38"/>',
+            f'<path class="flow" d="{path}" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="{-67 * (index + 1)}" style="animation-delay:-{index * .93:.2f}s" opacity=".9"/>',
+            '</g>',
+        ])
+    if languages:
+        out.extend([
+            '<circle cx="410" cy="335" r="54" fill="#121a35" stroke="#4d4b7b"/>',
+            '<circle cx="410" cy="335" r="49" fill="none" stroke="#8a8bd6" stroke-opacity=".17"/>',
+            '<text x="410" y="344" text-anchor="middle" fill="#c5c8ff" font-family="Consolas, monospace" font-size="30" font-weight="700">&lt;/&gt;</text>',
+        ])
     for index, lang in enumerate(languages):
         x, y = positions[lang["name"]]
-        color = COLORS[index]
+        color = palette.get(lang["name"], COLORS[index])
         out.extend([
-            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="42" fill="#111b33" stroke="{color}" stroke-width="3"/>',
-            f'<text x="{x:.1f}" y="{y + 11:.1f}" fill="{color}" font-size="30" font-weight="750" text-anchor="middle">{lang["repository_count"]}</text>',
-            f'<text x="{x:.1f}" y="{y + 66:.1f}" fill="#e9f0ff" stroke="#11162e" stroke-width="7" stroke-linejoin="round" paint-order="stroke" font-size="24" font-weight="600" text-anchor="middle">{xml(short(lang["name"], 18))}</text>',
+            f'<rect x="{x - 81}" y="{y - 39}" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>',
+            f'<rect x="{x - 81}" y="{y - 43}" width="162" height="86" rx="17" fill="#111a32" stroke="{color}" stroke-opacity=".58" stroke-width="1.3"/>',
+            f'<path d="M{x - 61} {y - 43}H{x + 42}" stroke="{color}" stroke-width="2.8" stroke-linecap="round"/>',
+            f'<circle cx="{x + 61}" cy="{y - 23}" r="3" fill="{color}" filter="url(#glow)"/>',
+            f'<text x="{x - 63}" y="{y - 9}" fill="{color}" font-size="22" font-weight="700">{xml(short(lang["name"], 11))}</text>',
+            f'<text x="{x - 63}" y="{y + 27}" fill="#f4f6ff" font-size="31" font-weight="700">{lang["repository_count"]}<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>',
         ])
-    out.append('</g></svg>')
+    out.extend([
+        f'<text x="36" y="555" fill="#99aacc" font-size="14">TOP {len(languages)} LANGUAGES <tspan fill="#4d607f"> / </tspan> SHARED REPOSITORIES CONNECT THE CARDS</text>',
+        '</g></g><rect x="1" y="1" width="818" height="578" rx="28" fill="none" stroke="url(#rim)" stroke-width="1.5"/></svg>',
+    ])
     return "\n".join(out) + "\n"
 
 
@@ -241,13 +278,14 @@ def render_table(model: dict, japanese: bool = False) -> str:
     if not model["languages"]:
         return "公開リポジトリの言語データはまだありません。" if japanese else "No public repository language data yet."
     heading = "| 言語 | リポジトリ数 | コードの例 |" if japanese else "| Language | Repositories | Example |"
-    lines = [heading, "| :-- | --: | :-- |"]
+    examples_label = "言語からコードの例を見る" if japanese else "Language → repository examples"
+    lines = ["<details>", f"<summary>{examples_label}</summary>", "", heading, "| :-- | --: | :-- |"]
     for lang in model["languages"][:6]:
         example = lang["example"]
         archived = " · archived" if example["archived"] else ""
         lines.append(f'| {markdown(lang["name"])} | {lang["repository_count"]} | [{markdown(example["name"])}]({example["url"]}){archived} |')
     summary = f'全 {model["language_count"]} 言語のリポジトリを見る' if japanese else f'Explore all {model["language_count"]} languages'
-    lines.extend(["", "<details>", f"<summary>{summary}</summary>", ""])
+    lines.extend(["", "</details>", "", "<details>", f"<summary>{summary}</summary>", ""])
     by_name = {repo["name"]: repo for repo in model["repositories"]}
     for lang in model["languages"]:
         links = []

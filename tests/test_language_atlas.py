@@ -3,6 +3,7 @@
 import importlib.util
 import json
 from pathlib import Path
+import re
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -105,6 +106,85 @@ class LanguageAtlasTests(unittest.TestCase):
         gradient = svg.find(".//{http://www.w3.org/2000/svg}linearGradient[@id='line']")
         self.assertEqual(gradient.get("gradientUnits"), "userSpaceOnUse")
 
+    def test_animated_svg_has_reduced_motion_fallback(self):
+        svg = ET.fromstring(atlas.render_svg(atlas.build_model("jang-sw", fixture())))
+        css = "\n".join(
+            element.text or "" for element in svg.iter()
+            if element.tag.rsplit("}", 1)[-1] == "style"
+        )
+        self.assertIn("@keyframes", css)
+        self.assertRegex(css, r"@media\s*\(\s*prefers-reduced-motion\s*:\s*reduce\s*\)")
+        reduced_motion = css[css.index("prefers-reduced-motion"):]
+        self.assertRegex(reduced_motion, r"animation\s*:\s*none\b")
+
+    def test_svg_is_self_contained_vector_without_active_content(self):
+        source = atlas.render_svg(atlas.build_model("jang-sw", fixture()))
+        svg = ET.fromstring(source)
+        prohibited = {"script", "foreignobject", "image", "iframe", "object", "embed", "audio", "video"}
+        for element in svg.iter():
+            self.assertNotIn(element.tag.rsplit("}", 1)[-1].lower(), prohibited)
+            for attribute, value in element.attrib.items():
+                attribute = attribute.rsplit("}", 1)[-1].lower()
+                self.assertFalse(attribute.startswith("on"), "Event handlers must not appear in the SVG.")
+                if attribute in {"href", "src"}:
+                    self.assertTrue(value.startswith("#"), "Only internal SVG references are permitted.")
+        self.assertNotIn("@import", source.lower())
+        for reference in re.findall(r"url\(\s*['\"]?([^)'\"]+)", source, flags=re.IGNORECASE):
+            self.assertTrue(reference.strip().startswith("#"), "SVG styling must not load external resources.")
+
+    def test_flow_animation_completes_whole_dash_periods_without_jumping(self):
+        svg = ET.fromstring(atlas.render_svg(atlas.build_model("jang-sw", fixture())))
+        css = "\n".join(element.text or "" for element in svg.iter() if element.tag.rsplit("}", 1)[-1] == "style")
+        keyframes = re.search(r"@keyframes\s+flow\s*\{(.+?)\}\s*\}", css, flags=re.DOTALL)
+        self.assertIsNotNone(keyframes)
+        offsets = [float(value) for value in re.findall(r"stroke-dashoffset\s*:\s*(-?[\d.]+)", keyframes.group(1))]
+        self.assertTrue(offsets)
+        for element in svg.iter():
+            if "flow" not in element.get("class", "").split():
+                continue
+            initial = offsets[0] if len(offsets) > 1 else float(element.get("stroke-dashoffset", "0"))
+            period = sum(float(value) for value in re.findall(r"[\d.]+", element.get("stroke-dasharray", "")))
+            self.assertGreater(period, 0)
+            distance = abs(offsets[-1] - initial)
+            self.assertGreaterEqual(distance, period, "Each moving edge must travel at least one complete dash cycle.")
+            self.assertAlmostEqual(distance % period, 0, places=7, msg="A loop must end on the same dash phase where it started.")
+
+    def test_svg_connections_match_only_actual_displayed_language_pairs(self):
+        # Metadata identifies semantic edges, independent of their shape or animation layers.
+        snapshots = [fixture(), {
+            "repositories": [repo("all"), repo("extra")],
+            "languages_by_repo": {
+                "all": {f"Language{index}": 10 for index in range(8)},
+                "extra": {"Language0": 10, "Language1": 10},
+            },
+        }]
+        for snapshot in snapshots:
+            model = atlas.build_model("jang-sw", snapshot)
+            selected = {language["name"] for language in model["languages"][:6]}
+            expected = {
+                tuple(sorted(edge["languages"])): edge["repository_count"]
+                for edge in model["connections"] if set(edge["languages"]) <= selected
+            }
+            svg = ET.fromstring(atlas.render_svg(model))
+            parents = {child: parent for parent in svg.iter() for child in parent}
+            actual = {}
+            for element in svg.iter():
+                if "data-language-a" not in element.attrib:
+                    continue
+                pair = tuple(sorted((element.get("data-language-a"), element.get("data-language-b"))))
+                self.assertNotIn(pair, actual, "Each semantic edge must be annotated exactly once.")
+                actual[pair] = int(element.get("data-repositories"))
+                self.assertTrue(any(child.tag.rsplit("}", 1)[-1] == "path" for child in element.iter()))
+            self.assertEqual(actual, expected)
+            moving_paths = [element for element in svg.iter() if "flow" in element.get("class", "").split()]
+            self.assertTrue(moving_paths)
+            for element in moving_paths:
+                self.assertEqual(element.tag.rsplit("}", 1)[-1], "path")
+                owner = element
+                while "data-language-a" not in owner.attrib and owner in parents:
+                    owner = parents[owner]
+                self.assertIn("data-language-a", owner.attrib, "Moving paths must belong to actual repository edges.")
+
     def test_writes_and_check_mode_are_deterministic(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -153,10 +233,11 @@ class LanguageAtlasTests(unittest.TestCase):
         table = atlas.render_table(model)
         self.assertIn("Explore all 8 languages", table)
         self.assertEqual(sum(line.startswith("| Language") and not line.startswith("| Language |") for line in table.splitlines()), 6)
-        details = table.split("<details>")[1]
+        visible, details = table.split("<details>", 1)
+        self.assertNotIn("| Language |", visible, "The repeated top-language table should start collapsed.")
         for name in names:
             self.assertIn(f"**{name}** (1 repos)", details)
-        self.assertEqual(details.count("https://github.com/jang-sw/project"), 8)
+        self.assertGreaterEqual(details.count("https://github.com/jang-sw/project"), 8)
 
 
 if __name__ == "__main__":

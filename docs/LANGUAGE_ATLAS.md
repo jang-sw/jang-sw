@@ -8,6 +8,7 @@ A repository-connected profile, without contribution streaks or image-widget ser
 - Scope: repositories owned by `jang-sw`, excluding forks, private repositories and `jang-sw/jang-sw` itself. Repositories without detected language bytes do not contribute to the map.
 - A language's count is the number of included repositories where GitHub detects that language. It is not a skill rating, a commit count, or a measure of personally authored code.
 - An edge connects two languages found together in one or more repositories. Its width reflects the shared repository count. The diagram shows the leading languages; the source JSON preserves the full inventory.
+- Animated lights follow only actual co-occurrence edges; motion is decoration, not live traffic or current development activity. Equal-size language cards do not encode proficiency. The image respects reduced-motion preferences.
 - Linked examples below the diagram lead to actual repositories. Expand the all-languages section to browse every matching repository. The SVG displayed inside a README is not an interactive application.
 
 ## Refresh

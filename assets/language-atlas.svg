@@ -1,39 +1,111 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="480" viewBox="0 0 760 480" role="img" aria-labelledby="title desc">
-<title id="title">Language Atlas</title>
-<desc id="desc">Equal-size language nodes show repository counts. Lines connect languages found together in repositories; thicker lines mean more shared repositories. Not a proficiency score.</desc>
-<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0e1933"/><stop offset="1" stop-color="#15102b"/></linearGradient><linearGradient id="line" gradientUnits="userSpaceOnUse" x1="0" y1="100" x2="760" y2="480"><stop stop-color="#6fe8ff"/><stop offset="1" stop-color="#b59bff"/></linearGradient></defs>
-<rect x="1" y="1" width="758" height="478" rx="22" fill="url(#bg)" stroke="#334362"/>
-<g font-family="system-ui, sans-serif">
-<text x="32" y="44" fill="#f1f6ff" font-size="29" font-weight="750" letter-spacing="3">LANGUAGE ATLAS</text>
-<text x="33" y="77" fill="#a8b9d5" font-size="20">29 repos · 15 detected languages · top 6 shown</text>
-<path d="M33 97 H727" stroke="#2b3655"/>
-<path d="M380.0 386.0 L592.2 327.0" stroke="url(#line)" stroke-width="7.00" opacity="0.42"><title>CSS + HTML: 4 shared repositories</title></path>
-<path d="M380.0 386.0 L592.2 209.0" stroke="url(#line)" stroke-width="7.00" opacity="0.42"><title>CSS + JavaScript: 4 shared repositories</title></path>
-<path d="M592.2 327.0 L592.2 209.0" stroke="url(#line)" stroke-width="7.00" opacity="0.42"><title>HTML + JavaScript: 4 shared repositories</title></path>
-<path d="M592.2 327.0 L167.8 327.0" stroke="url(#line)" stroke-width="7.00" opacity="0.42"><title>HTML + TypeScript: 4 shared repositories</title></path>
-<path d="M380.0 386.0 L167.8 327.0" stroke="url(#line)" stroke-width="6.00" opacity="0.42"><title>CSS + TypeScript: 3 shared repositories</title></path>
-<path d="M592.2 209.0 L167.8 209.0" stroke="url(#line)" stroke-width="6.00" opacity="0.42"><title>JavaScript + Vue: 3 shared repositories</title></path>
-<path d="M380.0 386.0 L167.8 209.0" stroke="url(#line)" stroke-width="5.00" opacity="0.42"><title>CSS + Vue: 2 shared repositories</title></path>
-<path d="M592.2 327.0 L167.8 209.0" stroke="url(#line)" stroke-width="5.00" opacity="0.42"><title>HTML + Vue: 2 shared repositories</title></path>
-<path d="M592.2 209.0 L167.8 327.0" stroke="url(#line)" stroke-width="5.00" opacity="0.42"><title>JavaScript + TypeScript: 2 shared repositories</title></path>
-<path d="M380.0 386.0 L380.0 150.0" stroke="url(#line)" stroke-width="4.00" opacity="0.42"><title>CSS + Java: 1 shared repositories</title></path>
-<path d="M167.8 327.0 L167.8 209.0" stroke="url(#line)" stroke-width="4.00" opacity="0.42"><title>TypeScript + Vue: 1 shared repositories</title></path>
-<circle cx="380.0" cy="150.0" r="42" fill="#111b33" stroke="#6fe8ff" stroke-width="3"/>
-<text x="380.0" y="161.0" fill="#6fe8ff" font-size="30" font-weight="750" text-anchor="middle">14</text>
-<text x="380.0" y="216.0" fill="#e9f0ff" stroke="#11162e" stroke-width="7" stroke-linejoin="round" paint-order="stroke" font-size="24" font-weight="600" text-anchor="middle">Java</text>
-<circle cx="592.2" cy="209.0" r="42" fill="#111b33" stroke="#b59bff" stroke-width="3"/>
-<text x="592.2" y="220.0" fill="#b59bff" font-size="30" font-weight="750" text-anchor="middle">10</text>
-<text x="592.2" y="275.0" fill="#e9f0ff" stroke="#11162e" stroke-width="7" stroke-linejoin="round" paint-order="stroke" font-size="24" font-weight="600" text-anchor="middle">JavaScript</text>
-<circle cx="592.2" cy="327.0" r="42" fill="#111b33" stroke="#80e4c4" stroke-width="3"/>
-<text x="592.2" y="338.0" fill="#80e4c4" font-size="30" font-weight="750" text-anchor="middle">7</text>
-<text x="592.2" y="393.0" fill="#e9f0ff" stroke="#11162e" stroke-width="7" stroke-linejoin="round" paint-order="stroke" font-size="24" font-weight="600" text-anchor="middle">HTML</text>
-<circle cx="380.0" cy="386.0" r="42" fill="#111b33" stroke="#ffaed5" stroke-width="3"/>
-<text x="380.0" y="397.0" fill="#ffaed5" font-size="30" font-weight="750" text-anchor="middle">6</text>
-<text x="380.0" y="452.0" fill="#e9f0ff" stroke="#11162e" stroke-width="7" stroke-linejoin="round" paint-order="stroke" font-size="24" font-weight="600" text-anchor="middle">CSS</text>
-<circle cx="167.8" cy="327.0" r="42" fill="#111b33" stroke="#92baff" stroke-width="3"/>
-<text x="167.8" y="338.0" fill="#92baff" font-size="30" font-weight="750" text-anchor="middle">4</text>
-<text x="167.8" y="393.0" fill="#e9f0ff" stroke="#11162e" stroke-width="7" stroke-linejoin="round" paint-order="stroke" font-size="24" font-weight="600" text-anchor="middle">TypeScript</text>
-<circle cx="167.8" cy="209.0" r="42" fill="#111b33" stroke="#e4d183" stroke-width="3"/>
-<text x="167.8" y="220.0" fill="#e4d183" font-size="30" font-weight="750" text-anchor="middle">3</text>
-<text x="167.8" y="275.0" fill="#e9f0ff" stroke="#11162e" stroke-width="7" stroke-linejoin="round" paint-order="stroke" font-size="24" font-weight="600" text-anchor="middle">Vue</text>
-</g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="580" viewBox="0 0 820 580" role="img" aria-labelledby="title desc">
+<title id="title">Language Atlas — a constellation of public code</title>
+<desc id="desc">Language cards show actual repository counts. Curved connections join languages used in the same repositories; wider lines mean more shared repositories. Moving lights are decorative, not live traffic or recent activity.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#07142b"/><stop offset=".48" stop-color="#11132f"/><stop offset="1" stop-color="#251336"/></linearGradient>
+<radialGradient id="aura"><stop stop-color="#7c5cff" stop-opacity=".30"/><stop offset="1" stop-color="#7c5cff" stop-opacity="0"/></radialGradient>
+<linearGradient id="line" gradientUnits="userSpaceOnUse" x1="60" y1="160" x2="730" y2="500"><stop stop-color="#61e4ff"/><stop offset=".52" stop-color="#ab8bff"/><stop offset="1" stop-color="#ff8ba7"/></linearGradient>
+<linearGradient id="rim" x2="1" y2="1"><stop stop-color="#61e4ff" stop-opacity=".65"/><stop offset=".48" stop-color="#8679df" stop-opacity=".13"/><stop offset="1" stop-color="#ff8ba7" stop-opacity=".6"/></linearGradient>
+<filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="2.4"/></filter>
+<pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#8dbde6" opacity=".12"/></pattern>
+<clipPath id="frame"><rect x="1" y="1" width="818" height="578" rx="28"/></clipPath>
+</defs>
+<style>.flow{animation:flow 12s linear infinite}@keyframes flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-1000}}.orbit{transform-origin:410px 335px;animation:orbit 70s linear infinite}@keyframes orbit{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.flow,.orbit{animation:none}.flow{display:none}}</style>
+<g clip-path="url(#frame)">
+<rect width="820" height="580" fill="url(#bg)"/>
+<rect width="820" height="580" fill="url(#grid)"/>
+<ellipse cx="440" cy="322" rx="290" ry="240" fill="url(#aura)"/>
+<path d="M-30 530 Q300 590 850 180M-40 550 Q350 590 860 230" fill="none" stroke="#b57ee7" stroke-opacity=".1"/>
+<g font-family="Segoe UI, Arial, sans-serif">
+<text x="36" y="36" fill="#7cdaed" font-size="13" font-weight="600" letter-spacing="3">JANG-SW / CODE CONSTELLATION</text>
+<text x="34" y="86" fill="#f3f4ff" font-size="43" font-weight="750" letter-spacing="-1.5">Language <tspan fill="#bc9dff">Atlas.</tspan></text>
+<rect x="603" y="35" width="181" height="67" rx="16" fill="#101b34" stroke="#485178"/>
+<text x="626" y="65" fill="#f0f7ff" font-size="25" font-weight="700">29<tspan font-size="15" fill="#a9bbd9"> repos</tspan><tspan fill="#586783"> / </tspan>15</text>
+<text x="626" y="85" fill="#9bb2d3" font-size="12" letter-spacing="1">DETECTED LANGUAGES</text>
+<path d="M36 116H784" stroke="url(#rim)"/>
+<g fill="none" stroke="#af91fa" stroke-opacity=".12"><circle cx="410" cy="335" r="96"/><circle cx="410" cy="335" r="110" stroke-dasharray="3 13" class="orbit"/><ellipse cx="410" cy="335" rx="167" ry="70" transform="rotate(-28 410 335)"/></g>
+<g data-language-a="CSS" data-language-b="HTML" data-repositories="4"><title>CSS + HTML: 4 shared repositories</title>
+<path d="M539 483 Q532.5 387.7 676 357" fill="none" stroke="url(#line)" stroke-width="5.00" opacity=".38"/>
+<path class="flow" d="M539 483 Q532.5 387.7 676 357" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-67" style="animation-delay:-0.00s" opacity=".9"/>
+</g>
+<g data-language-a="CSS" data-language-b="JavaScript" data-repositories="4"><title>CSS + JavaScript: 4 shared repositories</title>
+<path d="M539 483 Q516.0 336.9 623 193" fill="none" stroke="url(#line)" stroke-width="5.00" opacity=".38"/>
+<path class="flow" d="M539 483 Q516.0 336.9 623 193" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-134" style="animation-delay:-0.93s" opacity=".9"/>
+</g>
+<g data-language-a="HTML" data-language-b="JavaScript" data-repositories="4"><title>HTML + JavaScript: 4 shared repositories</title>
+<path d="M676 357 Q558.5 297.8 623 193" fill="none" stroke="url(#line)" stroke-width="5.00" opacity=".38"/>
+<path class="flow" d="M676 357 Q558.5 297.8 623 193" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-201" style="animation-delay:-1.86s" opacity=".9"/>
+</g>
+<g data-language-a="HTML" data-language-b="TypeScript" data-repositories="4"><title>HTML + TypeScript: 4 shared repositories</title>
+<path d="M676 357 Q418.7 380.9 172 461" fill="none" stroke="url(#line)" stroke-width="5.00" opacity=".38"/>
+<path class="flow" d="M676 357 Q418.7 380.9 172 461" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-268" style="animation-delay:-2.79s" opacity=".9"/>
+</g>
+<g data-language-a="CSS" data-language-b="TypeScript" data-repositories="3"><title>CSS + TypeScript: 3 shared repositories</title>
+<path d="M539 483 Q376.2 419.9 172 461" fill="none" stroke="url(#line)" stroke-width="4.10" opacity=".38"/>
+<path class="flow" d="M539 483 Q376.2 419.9 172 461" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-335" style="animation-delay:-3.72s" opacity=".9"/>
+</g>
+<g data-language-a="JavaScript" data-language-b="Vue" data-repositories="3"><title>JavaScript + Vue: 3 shared repositories</title>
+<path d="M623 193 Q388.0 290.1 126 332" fill="none" stroke="url(#line)" stroke-width="4.10" opacity=".38"/>
+<path class="flow" d="M623 193 Q388.0 290.1 126 332" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-402" style="animation-delay:-4.65s" opacity=".9"/>
+</g>
+<g data-language-a="CSS" data-language-b="Vue" data-repositories="2"><title>CSS + Vue: 2 shared repositories</title>
+<path d="M539 483 Q361.9 379.9 126 332" fill="none" stroke="url(#line)" stroke-width="3.20" opacity=".38"/>
+<path class="flow" d="M539 483 Q361.9 379.9 126 332" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-469" style="animation-delay:-5.58s" opacity=".9"/>
+</g>
+<g data-language-a="HTML" data-language-b="Vue" data-repositories="2"><title>HTML + Vue: 2 shared repositories</title>
+<path d="M676 357 Q404.4 340.9 126 332" fill="none" stroke="url(#line)" stroke-width="3.20" opacity=".38"/>
+<path class="flow" d="M676 357 Q404.4 340.9 126 332" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-536" style="animation-delay:-6.51s" opacity=".9"/>
+</g>
+<g data-language-a="JavaScript" data-language-b="TypeScript" data-repositories="2"><title>JavaScript + TypeScript: 2 shared repositories</title>
+<path d="M623 193 Q402.2 330.0 172 461" fill="none" stroke="url(#line)" stroke-width="3.20" opacity=".38"/>
+<path class="flow" d="M623 193 Q402.2 330.0 172 461" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-603" style="animation-delay:-7.44s" opacity=".9"/>
+</g>
+<g data-language-a="CSS" data-language-b="Java" data-repositories="1"><title>CSS + Java: 1 shared repositories</title>
+<path d="M539 483 Q378.7 340.6 180 205" fill="none" stroke="url(#line)" stroke-width="2.30" opacity=".38"/>
+<path class="flow" d="M539 483 Q378.7 340.6 180 205" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-670" style="animation-delay:-8.37s" opacity=".9"/>
+</g>
+<g data-language-a="TypeScript" data-language-b="Vue" data-repositories="1"><title>TypeScript + Vue: 1 shared repositories</title>
+<path d="M172 461 Q248.2 373.1 126 332" fill="none" stroke="url(#line)" stroke-width="2.30" opacity=".38"/>
+<path class="flow" d="M172 461 Q248.2 373.1 126 332" pathLength="1000" fill="none" stroke="#ccedff" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="12 988" stroke-dashoffset="-737" style="animation-delay:-9.30s" opacity=".9"/>
+</g>
+<circle cx="410" cy="335" r="54" fill="#121a35" stroke="#4d4b7b"/>
+<circle cx="410" cy="335" r="49" fill="none" stroke="#8a8bd6" stroke-opacity=".17"/>
+<text x="410" y="344" text-anchor="middle" fill="#c5c8ff" font-family="Consolas, monospace" font-size="30" font-weight="700">&lt;/&gt;</text>
+<rect x="99" y="166" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>
+<rect x="99" y="162" width="162" height="86" rx="17" fill="#111a32" stroke="#ffae78" stroke-opacity=".58" stroke-width="1.3"/>
+<path d="M119 162H222" stroke="#ffae78" stroke-width="2.8" stroke-linecap="round"/>
+<circle cx="241" cy="182" r="3" fill="#ffae78" filter="url(#glow)"/>
+<text x="117" y="196" fill="#ffae78" font-size="22" font-weight="700">Java</text>
+<text x="117" y="232" fill="#f4f6ff" font-size="31" font-weight="700">14<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>
+<rect x="542" y="154" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>
+<rect x="542" y="150" width="162" height="86" rx="17" fill="#111a32" stroke="#f8de7e" stroke-opacity=".58" stroke-width="1.3"/>
+<path d="M562 150H665" stroke="#f8de7e" stroke-width="2.8" stroke-linecap="round"/>
+<circle cx="684" cy="170" r="3" fill="#f8de7e" filter="url(#glow)"/>
+<text x="560" y="184" fill="#f8de7e" font-size="22" font-weight="700">JavaScript</text>
+<text x="560" y="220" fill="#f4f6ff" font-size="31" font-weight="700">10<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>
+<rect x="595" y="318" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>
+<rect x="595" y="314" width="162" height="86" rx="17" fill="#111a32" stroke="#ff8fad" stroke-opacity=".58" stroke-width="1.3"/>
+<path d="M615 314H718" stroke="#ff8fad" stroke-width="2.8" stroke-linecap="round"/>
+<circle cx="737" cy="334" r="3" fill="#ff8fad" filter="url(#glow)"/>
+<text x="613" y="348" fill="#ff8fad" font-size="22" font-weight="700">HTML</text>
+<text x="613" y="384" fill="#f4f6ff" font-size="31" font-weight="700">7<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>
+<rect x="458" y="444" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>
+<rect x="458" y="440" width="162" height="86" rx="17" fill="#111a32" stroke="#a69aff" stroke-opacity=".58" stroke-width="1.3"/>
+<path d="M478 440H581" stroke="#a69aff" stroke-width="2.8" stroke-linecap="round"/>
+<circle cx="600" cy="460" r="3" fill="#a69aff" filter="url(#glow)"/>
+<text x="476" y="474" fill="#a69aff" font-size="22" font-weight="700">CSS</text>
+<text x="476" y="510" fill="#f4f6ff" font-size="31" font-weight="700">6<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>
+<rect x="91" y="422" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>
+<rect x="91" y="418" width="162" height="86" rx="17" fill="#111a32" stroke="#73d4ff" stroke-opacity=".58" stroke-width="1.3"/>
+<path d="M111 418H214" stroke="#73d4ff" stroke-width="2.8" stroke-linecap="round"/>
+<circle cx="233" cy="438" r="3" fill="#73d4ff" filter="url(#glow)"/>
+<text x="109" y="452" fill="#73d4ff" font-size="22" font-weight="700">TypeScript</text>
+<text x="109" y="488" fill="#f4f6ff" font-size="31" font-weight="700">4<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>
+<rect x="45" y="293" width="162" height="86" rx="17" fill="#030815" opacity=".5"/>
+<rect x="45" y="289" width="162" height="86" rx="17" fill="#111a32" stroke="#73efc5" stroke-opacity=".58" stroke-width="1.3"/>
+<path d="M65 289H168" stroke="#73efc5" stroke-width="2.8" stroke-linecap="round"/>
+<circle cx="187" cy="309" r="3" fill="#73efc5" filter="url(#glow)"/>
+<text x="63" y="323" fill="#73efc5" font-size="22" font-weight="700">Vue</text>
+<text x="63" y="359" fill="#f4f6ff" font-size="31" font-weight="700">3<tspan fill="#9aaeca" font-size="14" font-weight="400"> repos</tspan></text>
+<text x="36" y="555" fill="#99aacc" font-size="14">TOP 6 LANGUAGES <tspan fill="#4d607f"> / </tspan> SHARED REPOSITORIES CONNECT THE CARDS</text>
+</g></g><rect x="1" y="1" width="818" height="578" rx="28" fill="none" stroke="url(#rim)" stroke-width="1.5"/></svg>

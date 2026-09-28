@@ -11,15 +11,18 @@
   <a href="https://github.com/jang-sw?tab=repositories">公開リポジトリ ↗</a>
 </p>
 
-## Language Atlas
+### 異なる言語、つながるアイデア。
 
-公開リポジトリで使われている言語のつながり。同じプロジェクトに含まれる言語を線で結び、共通するリポジトリが多いほど線を太くしています。
+公開コードに広がる言語のつながりをたどる。
 
 <p align="center">
-  <img src="./assets/language-atlas.svg?v=777ee207657c" width="100%" alt="Language Atlas：公開リポジトリに含まれる言語と、同じプロジェクトでの組み合わせ。" />
+  <img src="./assets/language-atlas.svg?v=93a4f1580ed5" width="100%" alt="Language Atlas：公開リポジトリに含まれる言語と、同じプロジェクトでの組み合わせ。" />
 </p>
 
 <!-- LANGUAGE_ATLAS:START -->
+
+<details>
+<summary>言語からコードの例を見る</summary>
 
 | 言語 | リポジトリ数 | コードの例 |
 | :-- | --: | :-- |
@@ -29,6 +32,8 @@
 | CSS | 6 | [Web3-multilingual-community-frontend](https://github.com/jang-sw/Web3-multilingual-community-frontend) |
 | TypeScript | 4 | [Anguar-basic-first](https://github.com/jang-sw/Anguar-basic-first) |
 | Vue | 3 | [Commuting-system-front](https://github.com/jang-sw/Commuting-system-front) |
+
+</details>
 
 <details>
 <summary>全 15 言語のリポジトリを見る</summary>
@@ -57,6 +62,8 @@
 <summary>このマップについて</summary>
 
 GitHub の言語データをもとに、公開・非フォークのリポジトリを集計しています。このプロフィール用リポジトリは対象外です。件数は言語が含まれるリポジトリ数であり、習熟度や最近の活動量ではありません。1つのリポジトリに複数の言語が含まれる場合があります。
+
+同じプロジェクトで使われる言語を線で結び、共通するリポジトリが多いほど線を太くしています。光の動きは演出であり、リアルタイムの活動量ではありません。「視差効果を減らす」設定にも対応しています。
 
 ワークフローが有効な間は週1回更新し、更新の間も最後のマップを表示します。連続コミット数や活動スコアは使いません。
 
