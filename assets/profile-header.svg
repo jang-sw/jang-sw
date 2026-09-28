@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" fill="none" role="img" aria-labelledby="title description">
+  <title id="title">Jang Seonung — Backend &amp; System Engineer</title>
+  <desc id="description">A dark navy profile header for Jang Seonung. Backend and System Engineer, working with Java, real-time communication, and data processing. A blue data-flow diagram connects collect, process, and serve.</desc>
+
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1200" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111f"/>
+      <stop offset="1" stop-color="#0d1b2b"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="811" y1="167" x2="1117" y2="167" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4d9fff" stop-opacity="0.4"/>
+      <stop offset="0.52" stop-color="#83bdff"/>
+      <stop offset="1" stop-color="#4d9fff" stop-opacity="0.7"/>
+    </linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" stroke="#7795b7" stroke-opacity="0.075"/>
+    </pattern>
+    <clipPath id="frame">
+      <rect width="1200" height="340" rx="20"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="340" fill="url(#background)"/>
+    <rect x="780" width="420" height="340" fill="url(#grid)"/>
+    <path d="M780 42V298" stroke="#25374c" stroke-opacity="0.65"/>
+    <path d="M66 28H110" stroke="#4d9fff" stroke-width="3" stroke-linecap="round"/>
+
+    <g font-family="Segoe UI, Arial, sans-serif">
+      <text x="64" y="67" fill="#99b4d1" font-size="19" font-weight="600" letter-spacing="4">JANG SEONUNG</text>
+      <text x="61" y="150" fill="#eff6ff" font-size="64" font-weight="700" letter-spacing="-2.2">Backend &amp; System</text>
+      <text x="61" y="222" fill="#eff6ff" font-size="64" font-weight="700" letter-spacing="-2.2">Engineer<tspan fill="#4d9fff">.</tspan></text>
+      <text x="65" y="286" fill="#b4c8df" font-size="24" font-weight="400">Java<tspan dx="8" fill="#4d9fff">·</tspan><tspan dx="8">Real-time communication</tspan><tspan dx="8" fill="#4d9fff">·</tspan><tspan dx="8">Data processing</tspan></text>
+    </g>
+
+    <g stroke-linecap="round" stroke-linejoin="round">
+      <path d="M830 119V139M846 119V139M862 119V139" stroke="#41617f" stroke-width="1.5"/>
+      <circle cx="830" cy="115" r="3" fill="#83bdff"/>
+      <circle cx="846" cy="115" r="3" fill="#4d9fff"/>
+      <circle cx="862" cy="115" r="3" fill="#83bdff"/>
+
+      <path d="M875 168H938M996 168H1059" stroke="url(#signal)" stroke-width="2"/>
+      <path d="M920 164L924 168L920 172M1041 164L1045 168L1041 172" stroke="#83bdff" stroke-width="1.5"/>
+
+      <rect x="817" y="139" width="58" height="58" rx="12" fill="#102438" stroke="#4677a6" stroke-width="1.5"/>
+      <path d="M834 155V168C834 175 846 181 846 181S858 175 858 168V155M834 161C834 161 839 165 846 165C853 165 858 161 858 161" stroke="#83bdff" stroke-width="1.8"/>
+      <path d="M834 155C834 155 839 151 846 151C853 151 858 155 858 155C858 155 853 159 846 159C839 159 834 155 834 155Z" stroke="#83bdff" stroke-width="1.8"/>
+
+      <rect x="938" y="139" width="58" height="58" rx="12" fill="#142c46" stroke="#4d9fff" stroke-width="1.5"/>
+      <path d="M967 153L982 168L967 183L952 168L967 153Z" stroke="#83bdff" stroke-width="1.8"/>
+      <circle cx="967" cy="168" r="3.5" fill="#eff6ff"/>
+
+      <rect x="1059" y="139" width="58" height="58" rx="12" fill="#102438" stroke="#4677a6" stroke-width="1.5"/>
+      <path d="M1075 158H1101V178H1075V158ZM1075 164H1101" stroke="#83bdff" stroke-width="1.8"/>
+      <circle cx="1080" cy="161" r="1" fill="#83bdff"/>
+      <path d="M1117 168H1143V244H1138" stroke="#41617f" stroke-width="1.5"/>
+      <circle cx="1134" cy="244" r="3" fill="#4d9fff"/>
+    </g>
+
+    <g fill="#a9c1da" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="1.4" text-anchor="middle">
+      <text x="846" y="225">COLLECT</text>
+      <text x="967" y="225">PROCESS</text>
+      <text x="1088" y="225">SERVE</text>
+    </g>
+    <rect x="0.5" y="0.5" width="1199" height="339" rx="19.5" stroke="#263b52" stroke-opacity="0.7"/>
+  </g>
+</svg>
