@@ -14,10 +14,10 @@
       "url": "https://github.com/jang-sw/AI-code-reviewer_dev-by-codex",
       "archived": false,
       "languages": {
-        "CSS": 13126,
-        "Java": 1587302,
-        "PowerShell": 35923,
-        "Python": 595486,
+        "CSS": 13301,
+        "Java": 1736835,
+        "PowerShell": 50561,
+        "Python": 902306,
         "Shell": 3160
       }
     },
@@ -287,7 +287,7 @@
         "Web3-multilingual-community-backend",
         "Web3j-Websocket-transferEvent"
       ],
-      "normalized_share_percent": 47.276563,
+      "normalized_share_percent": 47.040715,
       "example": {
         "name": "Commuting-system-backend",
         "url": "https://github.com/jang-sw/Commuting-system-backend",
@@ -346,7 +346,7 @@
         "web-library-ui-react",
         "Web3-multilingual-community-frontend"
       ],
-      "normalized_share_percent": 1.458206,
+      "normalized_share_percent": 1.454903,
       "example": {
         "name": "Web3-multilingual-community-frontend",
         "url": "https://github.com/jang-sw/Web3-multilingual-community-frontend",
@@ -391,7 +391,7 @@
         "AI-code-reviewer_dev-by-codex",
         "FastApi_demo"
       ],
-      "normalized_share_percent": 3.535344,
+      "normalized_share_percent": 3.766342,
       "example": {
         "name": "FastApi_demo",
         "url": "https://github.com/jang-sw/FastApi_demo",
@@ -469,7 +469,7 @@
       "repository_names": [
         "AI-code-reviewer_dev-by-codex"
       ],
-      "normalized_share_percent": 0.055424,
+      "normalized_share_percent": 0.064426,
       "example": {
         "name": "AI-code-reviewer_dev-by-codex",
         "url": "https://github.com/jang-sw/AI-code-reviewer_dev-by-codex",
@@ -495,7 +495,7 @@
       "repository_names": [
         "AI-code-reviewer_dev-by-codex"
       ],
-      "normalized_share_percent": 0.004875,
+      "normalized_share_percent": 0.004027,
       "example": {
         "name": "AI-code-reviewer_dev-by-codex",
         "url": "https://github.com/jang-sw/AI-code-reviewer_dev-by-codex",
